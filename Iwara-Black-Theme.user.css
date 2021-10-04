@@ -15,30 +15,18 @@ header .sub-menu,
 .dropdown-menu li a, 
 body, 
 section#content .container,
-section#content .container *,
+.panel-title,
 footer {
   color: #fff;
   background-color: #000000;
 }
-/* On the off chance I need it, I was doing everything on the forums manually like this at first instead of just dealing with .container-inline *
-.view-profile.view-display-id-block, 
-.view-profile.view-display-id-block .views-field-field-about, 
-.node.node-full.node-video .node-info, 
-.node.node-full.node-image .node-info, 
-.node.node-full .node-buttons, 
-.panel-default > .panel-heading,
-.panel-group *,
-.table-striped > tbody > tr:nth-child(odd) > td, .table-striped > tbody > tr:nth-child(odd) > th,
-.well, 
-I still can't really figure out how to just select all the decedents in one in most cases, but considering I worked on this for like 2 hours from knowing nothing about CSS it could be worse. */
+section#content .container * {
+    background-color: #000
+}
 .icon-bg,
 .icon-bg *{
     background-color: transparent !important
 }
-/* .multiple-icon,
-.likes-icon{
- background-color: #0009 !important 
-} */
 .node.node-full .field-name-body a.show, 
 .node.node-full .field-name-field-image-categories .field-items *,
 .node.node-full .field-name-field-categories .field-items *{
@@ -59,9 +47,9 @@ textarea, input{
 .resizable-textarea .grippie{
     background: #222 !important
 }
-.node.node-teaser h3.title a,  
+.node.node-teaser h3.title a,
 footer .block li a.session-active{
     color: #1abc9c !important
 }
-/* I have no idea how to make it not change the color of the titles in the first place. */
+/* I have no idea how to make it not change the color of the titles in the first place. But making the active language the same color is just a personal choice so people know it's still a link. */
 }
