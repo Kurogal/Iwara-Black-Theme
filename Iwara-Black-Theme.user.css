@@ -1,8 +1,9 @@
-@-moz-document domain("iwara.tv") {
+@-moz-document domain("iwara.tv"), regexp("https://www\\.erolabs\\.com/(iwara|iwaraiframe)/.*") {
+/* It's so scuffed how iframes work, I have to add an entire URL to fix one tiny iframe for advertisments and make it regexp to avoid it applying to the actual erolabs. */
 /* ==UserStyle==
 @name Iwara.TV Black Theme
 @namespace https://github.com/Kurogal/Iwara-Black-Theme
-@version 1.0.1
+@version 1.0.3
 @update https://github.com/Kurogal/Iwara-Black-Theme/raw/main/Iwara-Black-Theme.user.css
 @license Unlicense
 ==/UserStyle== */
@@ -15,6 +16,7 @@ header .sub-menu,
 .dropdown-menu, 
 .dropdown-menu li a, 
 body, 
+body home,
 section#content .container,
 section#content .item-list *,
 .panel-title,
@@ -23,15 +25,21 @@ footer {
   background-color: #000;
 }
 /* It's possible to make profile's transparent to fully show off their backgrounds, but for the time being I chose to follow the site's theme and keep it solid. */
-section#content .container * {
-    background-color: #000
+section#content .container *,
+extra-content-block{
+    background-color: #0000
 }
+/* This is a pretty nuclear option but I got real sick of trying to make the forums work otherwise, I'd rather just make this mess and clean it up instead. */
 .node-type-forum .forum-post .user-picture a * {
     background-color: #fff !important
 /* This is solely to handle weird edge cases where people have transparent user pictures and not have it turn into inverted mush. */ 
 }
 .icon-bg,
-.icon-bg *{
+.icon-bg *,
+.title,
+#block-mainblocks-user-connect .flag-follow a,
+.tooltip fade top in,
+.tooltip-arrow{
     background-color: transparent !important
 }
 /* You can add small transparent backgrounds to the likes and views to avoid needing to mouse over to see most of them, or awkwardly hold on them for mobile, but I'm also keeping it default for now. */
@@ -49,11 +57,20 @@ html body div[id*="DLsite_blog_parts_00"] div.DLsite_bp_body dt.DLsite_bp_work_n
 html body div[id*="DLsite_blog_parts_00"] div.DLsite_bp_body dd.DLsite_bp_circle_name a{
     color: #0080ff
 }
-textarea, input{
+.form-control,
+textarea,
+.tooltip-inner{
+    color: #fff;
     background-color: #111 !important
 }
 .resizable-textarea .grippie{
     background: #222 !important
+}
+.btn-primary{
+        background-color: #1abc9c !important
+}
+.btn-success{
+        background-color: #2ecc71 !important
 }
 .node.node-teaser h3.title a,
 footer .block li a.session-active{
