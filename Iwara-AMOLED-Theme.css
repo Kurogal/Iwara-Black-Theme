@@ -1,0 +1,59 @@
+@-moz-document domain("iwara.tv") {
+#r18-warning{display:none!important} 
+/* This is because Iwara can't remember your choice for very long and has seperate memory for each type of page which I find gets annoying really fast. It doesn't effect the page in any way currently to skip it outright with the way the warning overlay implemented. */
+header .menu-bar, 
+header .sub-menu, 
+.dropdown-menu, 
+.dropdown-menu li a, 
+body, 
+section#content .container,
+section#content .container *,
+footer {
+  color: #fff;
+  background-color: #000000;
+}
+/* On the off chance I need it, I was doing everything on the forums manually like this at first instead of just dealing with .container-inline *
+.view-profile.view-display-id-block, 
+.view-profile.view-display-id-block .views-field-field-about, 
+.node.node-full.node-video .node-info, 
+.node.node-full.node-image .node-info, 
+.node.node-full .node-buttons, 
+.panel-default > .panel-heading,
+.panel-group *,
+.table-striped > tbody > tr:nth-child(odd) > td, .table-striped > tbody > tr:nth-child(odd) > th,
+.well, 
+I still can't really figure out how to just select all the decedents in one in most cases, but considering I worked on this for like 2 hours from knowing nothing about CSS it could be worse. */
+.icon-bg,
+.icon-bg *{
+    background-color: transparent !important
+}
+/* .multiple-icon,
+.likes-icon{
+ background-color: #0009 !important 
+} */
+.node.node-full .field-name-body a.show, 
+.node.node-full .field-name-field-image-categories .field-items *,
+.node.node-full .field-name-field-categories .field-items *{
+    background-color: #111 !important
+}
+html body div[id*="DLsite_blog_parts_00"] div.DLsite_bp_body{
+    background: #000
+}
+html body div[id*="DLsite_blog_parts_00"] div.DLsite_bp_body dt.DLsite_bp_work_name a{
+    color: #0055ff
+}
+html body div[id*="DLsite_blog_parts_00"] div.DLsite_bp_body dd.DLsite_bp_circle_name a{
+    color: #0080ff
+}
+textarea, input{
+    background-color: #111 !important
+}
+.resizable-textarea .grippie{
+    background: #222 !important
+}
+.node.node-teaser h3.title a,  
+footer .block li a.session-active{
+    color: #1abc9c !important
+}
+/* I have no idea how to make it not change the color of the titles in the first place. */
+}
