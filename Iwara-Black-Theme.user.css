@@ -1,10 +1,12 @@
 @-moz-document domain("iwara.tv") {
+/* ==UserStyle==
 @name Iwara.TV Black Theme
 @namespace https://github.com/Kurogal/Iwara-Black-Theme
 @version 1.0.0
 @update https://github.com/Kurogal/Iwara-Black-Theme/raw/main/Iwara-Black-Theme.user.css
 @license Unlicense
-    
+==/UserStyle== */
+
 #r18-warning{display:none!important} 
 /* This is because Iwara can't remember your choice for very long and has seperate memory for each type of page which I find gets annoying really fast. It doesn't effect the page in any way currently to skip it outright with the way the warning overlay implemented. */
 header .menu-bar, 
