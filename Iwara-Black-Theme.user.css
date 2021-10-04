@@ -8,8 +8,8 @@
 ==/UserStyle== */
 
 #r18-warning{display:none!important} 
-/* This is because Iwara can't remember your choice for very long and has seperate memory for each type of page which I find gets annoying really fast. 
-  It doesn't effect the page in any way currently to skip it outright with the way the warning overlay implemented, only makes the currently slow servers more noticable. */
+/* This is because Iwara can't remember your choice for very long and has separate memory for each type of page which I find gets annoying really fast. 
+It currently doesn't seem to effect anything to skip warning overlay as far as I could tell, if it does it's not much more then the current server's effects. */
 header .menu-bar, 
 header .sub-menu, 
 .dropdown-menu, 
@@ -20,19 +20,21 @@ section#content .item-list *,
 .panel-title,
 footer {
   color: #fff;
-  background-color: #000000;
+  background-color: #000;
 }
+/* It's possible to make profile's transparent to fully show off their backgrounds, but for the time being I chose to follow the site's theme and keep it solid. */
 section#content .container * {
     background-color: #000
 }
 .node-type-forum .forum-post .user-picture a * {
     background-color: #fff !important
-/* This is solely to handle weird edge cases where people have transparent user pictures. */ 
+/* This is solely to handle weird edge cases where people have transparent user pictures and not have it turn into inverted mush. */ 
 }
 .icon-bg,
 .icon-bg *{
     background-color: transparent !important
 }
+/* You can add small transparent backgrounds to the likes and views to avoid needing to mouse over to see most of them, or awkwardly hold on them for mobile, but I'm also keeping it default for now. */
 .node.node-full .field-name-body a.show, 
 .node.node-full .field-name-field-image-categories .field-items *,
 .node.node-full .field-name-field-categories .field-items *{
@@ -57,5 +59,6 @@ textarea, input{
 footer .block li a.session-active{
     color: #1abc9c !important
 }
-/* I have no idea how to make it not change the color of the titles in the first place. But making the active language the same color is just a personal choice so people know it's still a link. */
+/* I have no idea how to make it not change the color of the titles in the first place. 
+But making the active language the same color is just a personal choice so people know it's still a clickable link. */
 }
