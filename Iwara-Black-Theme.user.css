@@ -1,13 +1,12 @@
 @-moz-document domain("iwara.tv"), regexp("https://www\\.erolabs\\.com/(iwara|iwaraiframe)/.*") {
-/* It's so scuffed how iframes work, I have to add an entire URL to fix one tiny iframe for advertisments and make it regexp to avoid it applying to the actual erolabs. */
 /* ==UserStyle==
 @name Iwara.TV Black Theme
 @namespace https://github.com/Kurogal/Iwara-Black-Theme
-@version 1.0.3
+@version 1.0.4
 @update https://github.com/Kurogal/Iwara-Black-Theme/raw/main/Iwara-Black-Theme.user.css
 @license Unlicense
 ==/UserStyle== */
-
+/* It's so scuffed how iframes work, I have to add an entire URL to fix one tiny iframe for advertisments and make it regexp to avoid it applying to the actual erolabs. */
 #r18-warning{display:none!important} 
 /* This is because Iwara can't remember your choice for very long and has separate memory for each type of page which I find gets annoying really fast. 
 It currently doesn't seem to effect anything to skip warning overlay as far as I could tell, if it does it's not much more then the current server's effects. */
@@ -78,4 +77,12 @@ footer .block li a.session-active{
 }
 /* I have no idea how to make it not change the color of the titles in the first place. 
 But making the active language the same color is just a personal choice so people know it's still a clickable link. */
+table.sticky-header{
+    background-color: #000 !important;
+    z-index: 9
+}
+table.sticky-header * {
+transition: 0s
+}
+/* These are to fix two issues the offical CSS has where the icons for the thread are drawn over the sticky header, and the transition away when the sticky header is hidden causing the text to linker floating for 0.25s, together creating a real eyesore just scrolling the page. */
 }
