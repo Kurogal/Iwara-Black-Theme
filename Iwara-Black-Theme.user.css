@@ -2,19 +2,21 @@
 /* ==UserStyle==
 @name Iwara.TV Black Theme
 @namespace https://github.com/Kurogal/Iwara-Black-Theme
-@version 1.0.0
+@version 1.0.1
 @update https://github.com/Kurogal/Iwara-Black-Theme/raw/main/Iwara-Black-Theme.user.css
 @license Unlicense
 ==/UserStyle== */
 
 #r18-warning{display:none!important} 
-/* This is because Iwara can't remember your choice for very long and has seperate memory for each type of page which I find gets annoying really fast. It doesn't effect the page in any way currently to skip it outright with the way the warning overlay implemented. */
+/* This is because Iwara can't remember your choice for very long and has seperate memory for each type of page which I find gets annoying really fast. 
+  It doesn't effect the page in any way currently to skip it outright with the way the warning overlay implemented, only makes the currently slow servers more noticable. */
 header .menu-bar, 
 header .sub-menu, 
 .dropdown-menu, 
 .dropdown-menu li a, 
 body, 
 section#content .container,
+section#content .item-list *,
 .panel-title,
 footer {
   color: #fff;
@@ -22,6 +24,10 @@ footer {
 }
 section#content .container * {
     background-color: #000
+}
+.node-type-forum .forum-post .user-picture a * {
+    background-color: #fff !important
+/* This is solely to handle weird edge cases where people have transparent user pictures. */ 
 }
 .icon-bg,
 .icon-bg *{
