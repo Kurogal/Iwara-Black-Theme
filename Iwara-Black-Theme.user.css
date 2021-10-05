@@ -2,7 +2,7 @@
 /* ==UserStyle==
 @name Iwara.TV Black Theme
 @namespace https://github.com/Kurogal/Iwara-Black-Theme
-@version 1.1.1
+@version 1.1.2
 @update https://github.com/Kurogal/Iwara-Black-Theme/raw/main/Iwara-Black-Theme.user.css
 @license Unlicense
 ==/UserStyle== */
@@ -110,5 +110,9 @@ transition: 0s
 .view-profile.view-display-id-block .views-field-picture img,
 .node-type-forum .forum-post .user-picture a * {
     background-color: #fff !important
+}
+/* Another site CSS fix, the title bar often doesn't line up like it's supposed to and just crosses over the profile picture and title in the search page, even when it works properly it barely adds anything. */
+.node .node-info .submitted h1.title {
+    border-bottom: 0px
 }
 }
