@@ -2,11 +2,11 @@
 /* ==UserStyle==
 @name Iwara.TV Black Theme
 @namespace https://github.com/Kurogal/Iwara-Black-Theme
-@version 1.1.0
+@version 1.1.1
 @update https://github.com/Kurogal/Iwara-Black-Theme/raw/main/Iwara-Black-Theme.user.css
 @license Unlicense
 ==/UserStyle== */
-/* I hate how iframes work, I have to add an entire URL to fix one tiny iframe for advertisments and make it regexp to avoid it applying to the actual erolabs site. */
+/* I hate how iframes work, I have to add an entire URL to fix one tiny iframe for advertisements and make it regexp to avoid it applying to the actual erolabs site. */
 #r18-warning{display:none!important} 
 /* This is because Iwara can't remember your choice for very long and has separate memory for each type of page which I find gets annoying really fast. */
 /*It currently doesn't seem to effect anything to skip warning overlay as far as I could tell, if it does it's not much more then the current server's effects. */
@@ -20,8 +20,9 @@ body,
 section#content .item-list a[id^=facetapi-link].facetapi-inactive.active,
 .panel-title > a,
 .well,
-.well .container-inline *,
-.row > .col-sm-6 *,
+.well .row .col-md-6 [id=ctools-jump-menu] *,
+.row > .col-sm-6 [id=advanced-forum-forum-topic-list-sort-form] *,
+.row > .col-sm-6 [id=ctools-jump-menu] *,
 footer{
 color:#fff;
 background-color: #000
@@ -97,7 +98,7 @@ background: #000 !important
 !input[type="submit" i]{
     background: #666 !important
 } */
-/* These are to fix two issues the offical CSS has where thread icons are drawn over the sticky header, and the transition away when the sticky header is hidden causing the text to linker floating for 0.25s, together creating a real eyesore just scrolling the page. */
+/* These are to fix two issues the official CSS has where thread icons are drawn over the sticky header, and the transition away when the sticky header is hidden causing the text to linker floating for 0.25s, together creating a real eyesore just scrolling the page. */
 table.sticky-header{
     background-color: #000 !important;
     z-index: 9
