@@ -164,6 +164,13 @@ I'm making it white for now for visual consistency with other text fields, but i
 !input[type="submit" i]{
     background: #666 !important
 } */
+
+/* Site fixes. */
+/* Fix for the arrows that are a part of popup/hover over titles from drawing over the title. I don't think I can fix the arrow being in the wrong spot a quarter of the time. */
+.tooltip.top .tooltip-arrow{
+    border-top-color: #111;
+    z-index: -1
+}
 /* These are to fix two issues the official CSS has where thread icons are drawn over the sticky header, and the transition away when the sticky header is hidden causing the text to linker floating for 0.25s, together creating a real eyesore just scrolling the page. */
 table.sticky-header{
     background-color: #000 !important;
