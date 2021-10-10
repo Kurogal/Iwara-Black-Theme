@@ -2,7 +2,7 @@
 /* ==UserStyle==
 @name Iwara.TV Black Theme
 @namespace https://github.com/Kurogal/Iwara-Black-Theme
-@version 1.1.4
+@version 1.1.5
 @description Pure black theme for Iwara.tv with additional minor site tweaks.
 @update https://github.com/Kurogal/Iwara-Black-Theme/raw/main/Iwara-Black-Theme.user.css
 @license Unlicense
@@ -58,7 +58,7 @@ header .menu-bar .nav-pills > li > a:hover{
     color: #fff;
     background-color: hsla(0, 0%, 0%, .35)
 }
-/* I've gone with making the profile backgrounds partially transparent here instead of making it fully opaque, to show off profiles with nice texture backgrounds like https://www.iwara.tv/users/ratzy while handling very bright backgrounds like https://ecchi.iwara.tv/users/hoay and https://www.iwara.tv/users/jaimeisaac and still keeping it generally in the dark theme. Even in the worst case I found of a user with a pure white PNG background for some odd reason it wasn't a complete trainwreck. https://ecchi.iwara.tv/users/ymrd */
+/* I've gone with making the profile backgrounds partially transparent here instead of making it fully opaque, to show off profiles with nice texture backgrounds like https://www.iwara.tv/users/ratzy while handling very bright backgrounds like https://ecchi.iwara.tv/users/hoay and https://www.iwara.tv/users/jaimeisaac and still keeping it generally in the dark theme. Even in the worst case I found of a user with a pure white PNG background for some odd reason it wasn't a complete train wreck. https://ecchi.iwara.tv/users/ymrd */
 section#content .container{
     background-color: #000c   
 }
@@ -74,7 +74,9 @@ section#content .container{
 /* Personal choices, this is to give the video titles and the tags a nice color with the new black theme. */
 header .sub-menu .link a,
 .node.node-teaser h3.title a,
-section#content .item-list a[id^=facetapi-link].facetapi-inactive.active{
+section#content .item-list a[id^=facetapi-link].facetapi-inactive.active,
+/* This last one is for the mobile version of the site. */
+header .logo .site-name{
     color: #16a085 !important
 }
 /* The default links also don't change color when you hover over them like on the search page, so this mimics that functionality. */
@@ -82,7 +84,9 @@ header .menu-bar .nav-pills > li > a,
 .node.node-teaser h3.title a:hover,
 section#content .item-list a[id^=facetapi-link].facetapi-inactive.active:hover,
 /* Also weirdly the follow/unfollow button on profiles doesn't change color when hovered over when the other profile options do, this changes that. */
-#block-mainblocks-user-connect .flag-follow a:hover
+#block-mainblocks-user-connect .flag-follow a:hover,
+/* And finally the hover function still works for holding the link on mobile, so this is needed for consistency. */
+header .logo .site-name:hover
 {
     color: #1abc9c !important;
     transition: .25s
@@ -106,7 +110,7 @@ header .menu-bar .nav-pills > li > a:hover,
 header .sub-menu .link a:hover{
     color: #1dd3af !important
 }
-/* But the links on the bottom (Contact Us, Discord, ect.) have a background color change to a slightly differnt white when you hover over them. */
+/* But the links on the bottom (Contact Us, Discord, ect.) have a background color change to a slightly different white when you hover over them. */
 .nav > li > a:hover{
     background-color: transparent
 }
