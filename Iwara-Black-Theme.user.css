@@ -2,7 +2,7 @@
 /* ==UserStyle==
 @name Iwara.TV Black Theme
 @namespace https://github.com/Kurogal/Iwara-Black-Theme
-@version 1.1.5
+@version 1.1.6
 @description Pure black theme for Iwara.tv with additional minor site tweaks.
 @update https://github.com/Kurogal/Iwara-Black-Theme/raw/main/Iwara-Black-Theme.user.css
 @license Unlicense
@@ -114,9 +114,12 @@ header .sub-menu .link a:hover{
 .nav > li > a:hover{
     background-color: transparent
 }
-/* Name link default color ( #95a5a6 ) */
+/* Name link default color ( #95a5a6 ) , My first manual pick was hsl(147, 33%, 72%) abouts trying to keep the green theme instead of this cyan color, but I decided to just go with +10s, and =10l for hover to keep the saturation down enough that you don't notice too much that it's not actually green. */
 .node.node-teaser .username{
-    color: hsl(147, 33%, 72%)
+    color: #8caeb1
+}
+.node.node-teaser .username:hover{
+    color: #aac3c5
 }
 /* I really wanted to add hover over for full titles on really long video/images that get their name truncated like on YouTube, but the page doesn't store the full titles and also seems to do it in a really weird way like looking at some videos on this channel: https://ecchi.iwara.tv/users/キアヌ・リーブス so that seems impossible to do in a reasonable way for now. */
 
