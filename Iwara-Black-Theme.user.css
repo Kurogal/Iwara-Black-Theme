@@ -2,15 +2,15 @@
 /* ==UserStyle==
 @name Iwara.TV Black Theme
 @namespace https://github.com/Kurogal/Iwara-Black-Theme
-@version 1.1.6
+@version 1.1.7
 @description Pure black theme for Iwara.tv with additional minor site tweaks.
 @update https://github.com/Kurogal/Iwara-Black-Theme/raw/main/Iwara-Black-Theme.user.css
 @license Unlicense
 ==/UserStyle== */
-/* I hate how iframes work, I have to add an entire URL to fix one tiny iframe for advertisements and make it regexp to avoid it applying to the actual erolabs site. */
-/* This is because Iwara can't remember your choice for very long and has separate memory for each type of page which I find gets annoying really fast. */
+/* The erolabs link is needed for the iframes of advertisements from erolabs, set as a regexp to avoid it applying to the actual erolabs site. */
 #r18-warning{display:none!important} 
-/*It currently doesn't seem to effect anything to skip warning overlay as far as I could tell, if it does it's not much more then the current server's effects. */
+/* Iwara can't remember your choice for very long and has separate memory for each type of page which I find gets annoying really fast. It currently doesn't seem to effect anything to skip the warning overlay as far as I could tell, if it does it's not much more then the natural instability of the current servers. */
+/* Header, Main Body, Forums, Footer. */
 header .menu-bar,
 header .sub-menu,
 body,
@@ -32,13 +32,18 @@ node-info,
     background-color: transparent;
     box-shadow: 0px 0px 0px 0px
 }
-/* Header Background colors. Originals: (Active #34495e) (Hover #46627f), I just reduced the HSLA Lightness by 19 on both.  */
+/* Header Background colors. Originals: (Normal #34495e) (Hover/Focus #46627f), only kept the hue here. */
 .nav-pills > li.active > a{
-    background-color: hsl(210, 29%, 10%)
+    background-color: hsl(210, 100%, 13%)
 }
 header .menu-bar .nav-pills > li > a:hover{
-    background-color: hsl(211, 29%, 20%)
+    background-color: hsl(211, 100%, 23%)
 }
+header .menu-bar .nav-pills > li > a:focus{
+    background-color: hsl(211, 100%, 33%);
+       color: hsl(168, 76%, 47%) !important
+}
+
 /* Video Player Adjustments */
 /* The default color of the video bar is rgba(43,51,63,.7), I just tanked the HSLA saturation to 0. */
 .video-js .vjs-control-bar,
@@ -46,7 +51,8 @@ header .menu-bar .nav-pills > li > a:hover{
     background-color: hsla(216, 0%, 21%, .7)
 }
 /* The hover menu is rgba(115,133,159,.5), also lowered by L by 14 since it was too bright. */
-.vjs-menu li:focus, .vjs-menu li:hover{
+.vjs-menu li:hover,
+.vjs-menu li:focus{
     background-color: hsla(215, 0%, 40%, .5) 
 }
 /* Selected bar is just #2B333F, I just ignored it completely. */
@@ -54,10 +60,14 @@ header .menu-bar .nav-pills > li > a:hover{
     color: #fff;
     background-color: hsla(0, 0%, 0%, .5)
 }
-.vjs-menu li.vjs-selected:hover{
+.vjs-menu li.vjs-selected:hover,
+.vjs-menu li.vjs-selected:focus{
     color: #fff;
     background-color: hsla(0, 0%, 0%, .35)
 }
+
+/* Profiles */
+
 /* I've gone with making the profile backgrounds partially transparent here instead of making it fully opaque, to show off profiles with nice texture backgrounds like https://www.iwara.tv/users/ratzy while handling very bright backgrounds like https://ecchi.iwara.tv/users/hoay and https://www.iwara.tv/users/jaimeisaac and still keeping it generally in the dark theme. Even in the worst case I found of a user with a pure white PNG background for some odd reason it wasn't a complete train wreck. https://ecchi.iwara.tv/users/ymrd */
 section#content .container{
     background-color: #000c   
@@ -71,30 +81,47 @@ section#content .container{
 .node.node-full .field-name-field-categories .field-items *{
     background-color: #111 !important
 }
-/* Personal choices, this is to give the video titles and the tags a nice color with the new black theme. */
+/* The edit profile button is hard to read even on the default site since it uses a bright yellow (#f1c40f hsl(48, 89%, 50%) ) with white text. */
+a.btn.btn-warning.btn-block{
+    background-color: hsl(48, 89%, 40%)
+}
+
+/* Links */
+
+/* This is to give the video titles and the tags a nice color with the new black theme. */
 header .sub-menu .link a,
+header .menu-bar .nav-pills > li > a,
 .node.node-teaser h3.title a,
 section#content .item-list a[id^=facetapi-link].facetapi-inactive.active,
-/* This last one is for the mobile version of the site. */
+/* This last one is for the mobile version of the site. (Default #16a085) */
 header .logo .site-name{
-    color: #16a085 !important
+    color: hsl(168, 76%, 36%) !important
 }
-/* The default links also don't change color when you hover over them like on the search page, so this mimics that functionality. */
-header .menu-bar .nav-pills > li > a,
+/* The default links also don't change color when you hover over them like on the search page, so this mimics that functionality. (Default #1abc9c hsl(168, 76%, 42%) ) added 5L to make it work better for most links. */
+
 .node.node-teaser h3.title a:hover,
+.node.node-teaser h3.title a:focus,
 section#content .item-list a[id^=facetapi-link].facetapi-inactive.active:hover,
-/* Also weirdly the follow/unfollow button on profiles doesn't change color when hovered over when the other profile options do, this changes that. */
+section#content .item-list a[id^=facetapi-link].facetapi-inactive.active:focus,
+/* Weirdly the follow/unfollow button specifically on profiles doesn't change color when hovered over when the other profile options do. */
 #block-mainblocks-user-connect .flag-follow a:hover,
+#block-mainblocks-user-connect .flag-follow a:focus,
 /* And finally the hover function still works for holding the link on mobile, so this is needed for consistency. */
-header .logo .site-name:hover
-{
-    color: #1abc9c !important;
+header .logo .site-name:hover,
+header .logo .site-name:focus{
+/* Scrapped test to enhance the hover over color of links that already do change, it'll have to go on the backburner if I don't wanna hunt down every single type of link, either the things I don't want to change like buttons or the reverse of doing every type of link I do want manually.
+a.username:hover,
+li.comment-reply.first.last a:hover,
+ul.list-unstyled *:hover,
+.comments *:hover{
+    color: hsl(294, 76%, 47%) !important; */
+    color: hsl(168, 76%, 47%) !important;
     transition: .25s
 }
-/* Same with the footer links, but with the HSLA Lightness raised by 10 since the default color for them is already #1abc9c.*/
+/* Same with the footer links, but with the HSLA L raised by 10 from the default color for them which is already #1abc9c.*/
 footer .block ul a:hover
 {
-    color: #28e2bc !important;
+    color: hsl(168, 76%, 52%) !important;
     transition: .25s
 }
 /*And to make it clear that current language in the footer is also a link, but with a darker green then the other links. The default #1abc9c reduced by 22 L. */
@@ -102,27 +129,36 @@ footer .block li a.session-active{
     color: hsl(168, 76%, 20%) !important
 }
 /* Only by 12 L for the hover over. */
-footer .block li a.session-active:hover{
+footer .block li a.session-active:hover,
+footer .block li a.session-active:focus{
     color: hsl(168, 76%, 30%) !important
 }
-/* The header links are also seperate since it's hard to see the difference with the thin font they use without a bit of exaggeration, but with 5L since 10L is too much. */
+/* The header links are also separate since it's hard to see the difference with the thin font they use without a bit of exaggeration, but with 5L since 10L is too much. */
 header .menu-bar .nav-pills > li > a:hover,
-header .sub-menu .link a:hover{
+header .menu-bar .nav-pills > li > a:focus,
+header .sub-menu .link a:hover,
+header .sub-menu .link a:focus{
     color: #1dd3af !important
 }
-/* But the links on the bottom (Contact Us, Discord, ect.) have a background color change to a slightly different white when you hover over them. */
-.nav > li > a:hover{
+/* Links on the bottom (Contact Us, Discord, ect.) have a background color change to a slightly different white when you hover over them normally. */
+.nav > li > a:hover,
+.nav > li > a:focus{
     background-color: transparent
 }
-/* Name link default color ( #95a5a6 ) , My first manual pick was hsl(147, 33%, 72%) abouts trying to keep the green theme instead of this cyan color, but I decided to just go with +10s, and =10l for hover to keep the saturation down enough that you don't notice too much that it's not actually green. */
+/* Name link default color ( #95a5a6 hsl(184, 9%, 62%) ) I decided to just go with +10s, and +10 L for hover to keep the saturation down enough that you don't notice too much that it's actually a cyan color. */
 .node.node-teaser .username{
-    color: #8caeb1
+    color: hsl(184, 19%, 62%)
 }
-.node.node-teaser .username:hover{
-    color: #aac3c5
+.node.node-teaser .username:hover,
+.node.node-teaser .username:focus{
+    color: hsl(184, 19%, 72%)
 }
 /* I really wanted to add hover over for full titles on really long video/images that get their name truncated like on YouTube, but the page doesn't store the full titles and also seems to do it in a really weird way like looking at some videos on this channel: https://ecchi.iwara.tv/users/キアヌ・リーブス so that seems impossible to do in a reasonable way for now. */
 
+/* Private Warning, original color is #fcf8e3 hsl(50, 81%, 94%), l reduced to 30% */
+p.bg-warning{
+    background-color: #8a760f
+}
 
 /* DLsite ads */
 html body div[id*="DLsite_blog_parts_00"] div.DLsite_bp_body{
@@ -136,24 +172,72 @@ html body div[id*="DLsite_blog_parts_00"] div.DLsite_bp_body dt.DLsite_bp_work_n
 html body div[id*="DLsite_blog_parts_00"] div.DLsite_bp_body dd.DLsite_bp_circle_name a{
     color: #39f
 }
-/* Text Entry fields and the drop down menu */
+
+/* Text Entry fields & Drop Down Menu */
 .dropdown-menu, 
 .dropdown-menu li a,
 .form-control,
 textarea,
 .tooltip-inner,
 .form-text {
-    color: #fff;
+    color: hsl(168, 76%, 36%);
     background-color: #111 !important
 }
 .resizable-textarea .grippie{
     background: #222 !important
 }
-/* Weirdly the search box text color is separately set to a very dark blue that's barely noticeable as not black at #34495e against a white background. 
-I'm making it white for now for visual consistency with other text fields, but it has the option of being changed easily here. */
-.views-exposed-form .form-item-query input{
+.dropdown-menu li a:hover{
+    color: hsl(168, 76%, 47%) !important;
+    background-color: #333 !important
+}
+.dropdown-menu li a:focus{
+    color: hsl(168, 76%, 47%) !important;
+    background-color: #444 !important
+}
+/* Weirdly there are various text field with their text color separately set to a very dark blue (#34495e) that's barely noticeable as not black against the normal white background.
+I'm making it white for now for visual consistency with other text fields, but it has the option of being changed easily here to a barely not white blue if it's needed. */
+/* Search box text */
+.views-exposed-form .form-item-query input,
+/* Content Page text */
+.page-node-edit .form-text{
     color:#fff
 }
+/* Video Upload Page Original (#dedede, #eee, #fff) Hover (#ededdd) */
+
+.horizontal-tabs ul.horizontal-tabs-list{
+    background-color: hsl(0, 0%, 13%)
+}
+.horizontal-tabs ul.horizontal-tabs-list li{
+    background-color: hsl(0, 0%, 7%)
+}
+.horizontal-tabs ul.horizontal-tabs-list li.selected,
+/* The site's default CSS makes the button flash white when you hover over. Hopefully flashing black will be less noticable with how dark the page is now. */
+.horizontal-tabs ul.horizontal-tabs-list li:hover,
+.horizontal-tabs ul.horizontal-tabs-list li:focus{
+    background-color: hsl(0, 0%, 0%)
+}
+.horizontal-tabs ul.horizontal-tabs-list .selected strong{
+    color: #fff
+}
+.horizontal-tabs ul.horizontal-tabs-list li a:hover,
+.horizontal-tabs ul.horizontal-tabs-list li a:focus{
+    background-color: hsl(60, 31%, 10%)
+}
+
+/* Messages, Playlist, & Content Page */
+.page-messages #privatemsg-list-form tr,
+.node-playlist.node-wide_teaser,
+tr.draggable.odd{
+    background-color: #000
+}
+tr.draggable.even{
+    background-color: #111
+}
+tr.even,
+tr.odd{
+    border-bottom: 1px solid #fff
+}
+
 /* Forums */
 .panel-default > .panel-heading,
 .panel,
@@ -164,21 +248,25 @@ I'm making it white for now for visual consistency with other text fields, but i
     background: #000 !important
 }
 /* Odd Table Forums */
+.view-id-content table > tbody > tr:nth-child(odd) > td, .view-id-content table > tbody > tr:nth-child(odd) > th,
 .table-striped > tbody > tr:nth-child(odd) > td, .table-striped > tbody > tr:nth-child(odd){
     background: #111
 }
-/* I want to fix how ugly the sort button is with the color changed, but it's probably not worth the trouble for a tiny bit of lopsided border.
-!input[type="submit" i]{
-    background: #666 !important
-} */
+/* Sort button borders */
+.form-item.form-type-select *,
+input[type="submit" i]{
+    border-color: #fff 
+}
 
-/* Site fixes. */
+/* Official Site CSS Fixes. */
+/* Video/Image Suggestions & More By this User */
 /* Fix for the arrows that are a part of popup/hover over titles from drawing over the title. I don't think I can fix the arrow being in the wrong spot a quarter of the time. */
 .tooltip.top .tooltip-arrow{
     border-top-color: #111;
     z-index: -1
 }
-/* These are to fix two issues the official CSS has where thread icons are drawn over the sticky header, and the transition away when the sticky header is hidden causing the text to linker floating for 0.25s, together creating a real eyesore just scrolling the page. */
+/* Forums Fixes */
+/* These are to fix two issues the official CSS has where thread icons are drawn over the sticky header, and the transition away when the sticky header is hidden causing the text to linker floating for 0.25s before and after the header goes away. */
 table.sticky-header{
     background-color: #000 !important;
     z-index: 9
@@ -186,13 +274,28 @@ table.sticky-header{
 table.sticky-header * {
     transition: 0s
 }
-/* This is solely to handle transparent user pictures and not have them turn into inverted mush. https://www.iwara.tv/users/nightswordiajjdibalzet https://www.iwara.tv/forums/how-make-xray-effec */ 
+/* Search Page Fix */
+/* The title bar often doesn't line up like it's supposed to and just crosses over the profile picture and title in the search page, even when it works properly it barely adds anything. */
+.node .node-info .submitted h1.title {
+    border-bottom: 0px
+}
+/* Content Page Fix */
+/* For some reason on the content page the Save and Delete buttons have no margin between them so they're fused together. The site seems to use 7.5 as it's margin on most pages but I just went with 4 twice here. */
+.form-actions.form-wrapper input[id=edit-submit],
+.form-actions.form-wrapper input[id=edit-delete]{
+      margin-right: 4px;
+      margin-left: 4px;
+}
+
+/* Edge Case Handling */
+/* This is here solely to handle transparent user pictures and not have them turn into inverted mush. https://www.iwara.tv/users/nightswordiajjdibalzet https://www.iwara.tv/forums/how-make-xray-effec */ 
 .view-profile.view-display-id-block .views-field-picture img,
 .node-type-forum .forum-post .user-picture a * {
     background-color: #fff !important
 }
-/* Another site CSS fix, the title bar often doesn't line up like it's supposed to and just crosses over the profile picture and title in the search page, even when it works properly it barely adds anything. */
-.node .node-info .submitted h1.title {
-    border-bottom: 0px
-}
+/* Personal choice. I honestly always thought the floating double line on subforums and triple lines in threads with the pager were uneeded and ugly so this gets rid of that. */
+/* It's commented out by default though since I'm not sure how everyone else will feel about it and it's possible people are used it by now. 
+.item-list > .pager{
+    border-top: 0
+} */
 }
