@@ -2,7 +2,7 @@
 /* ==UserStyle==
 @name Iwara.TV Black Theme
 @namespace https://github.com/Kurogal/Iwara-Black-Theme
-@version 1.2.0
+@version 1.2.1
 @description Pure black theme for Iwara.tv with additional minor site tweaks.
 @update https://github.com/Kurogal/Iwara-Black-Theme/raw/main/Iwara-Black-Theme.user.css
 @license Unlicense
@@ -358,6 +358,7 @@ a.btn.btn-info.btn-sm.user{
     background-color: #fff !important
 }
 /* Personal choices. */
+/* Video Thumbnail Changes. */
 .node.node-teaser:hover .icon-bg, 
 .node.node-sidebar_teaser:hover .icon-bg{
     background: #0000 !important
@@ -365,11 +366,14 @@ a.btn.btn-info.btn-sm.user{
 .left-icon.multiple-icon,
 .right-icon.likes-icon,
 .left-icon.likes-icon{
-    background-color: #000000a6;
+    background-color: rgba(0, 0, 0, .5);
     font-size: 10px ;
     padding-left: 4px;
     padding-right: 4px;
     height: 15px
+}
+.private-video{
+    background-color: #00000080
 }
 /* I honestly always thought the floating double line on subforums and triple lines in threads with the pager were uneeded and ugly so this gets rid of that. */
 /* It's commented out by default though since I'm not sure how everyone else will feel about it and it's possible people are used it by now. 
