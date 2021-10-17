@@ -2,7 +2,7 @@
 /* ==UserStyle==
 @name Iwara.TV Black Theme
 @namespace https://github.com/Kurogal/Iwara-Black-Theme
-@version 1.1.9
+@version 1.1.10
 @description Pure black theme for Iwara.tv with additional minor site tweaks.
 @update https://github.com/Kurogal/Iwara-Black-Theme/raw/main/Iwara-Black-Theme.user.css
 @license Unlicense
@@ -299,9 +299,12 @@ tr.odd{
 /* Odd Table Forums */
 .view-id-content table > tbody > tr:nth-child(odd) > td, .view-id-content table > tbody > tr:nth-child(odd) > th,
 .table-striped > tbody > tr:nth-child(odd) > td, .table-striped > tbody > tr:nth-child(odd),
-code,
+/* BBCode Guide Page. */
 pre{
     background: #111
+}
+code{
+    background: hsl(0, 0%, 23%)
 }
 /* Sort button borders */
 .form-item.form-type-select *,
