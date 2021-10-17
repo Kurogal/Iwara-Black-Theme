@@ -2,7 +2,7 @@
 /* ==UserStyle==
 @name Iwara.TV Black Theme
 @namespace https://github.com/Kurogal/Iwara-Black-Theme
-@version 1.1.10
+@version 1.1.11
 @description Pure black theme for Iwara.tv with additional minor site tweaks.
 @update https://github.com/Kurogal/Iwara-Black-Theme/raw/main/Iwara-Black-Theme.user.css
 @license Unlicense
@@ -225,6 +225,7 @@ html body div[id*="DLsite_blog_parts_00"] div.DLsite_bp_body dd.DLsite_bp_circle
 /* Text Entry fields & Drop Down Menu */
 .dropdown-menu, 
 .dropdown-menu li a,
+ul.playlists.list-unstyled,
 .form-control,
 textarea,
 .tooltip-inner,
@@ -276,10 +277,13 @@ I'm making it white for now for visual consistency with other text fields, but i
 /* Messages, Playlist, & Content Page */
 .page-messages #privatemsg-list-form tr,
 .node-playlist.node-wide_teaser,
-tr.draggable.odd{
+tr.even,
+tr.draggable.even
+{
     background-color: #000
 }
-tr.draggable.even{
+tr.odd,
+tr.draggable.odd{
     background-color: #111
 }
 tr.even,
