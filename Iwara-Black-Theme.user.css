@@ -2,7 +2,7 @@
 /* ==UserStyle==
 @name Iwara.TV Black Theme
 @namespace https://github.com/Kurogal/Iwara-Black-Theme
-@version 1.2.1
+@version 1.2.2
 @description Pure black theme for Iwara.tv with additional minor site tweaks.
 @update https://github.com/Kurogal/Iwara-Black-Theme/raw/main/Iwara-Black-Theme.user.css
 @license Unlicense
@@ -359,21 +359,38 @@ a.btn.btn-info.btn-sm.user{
 }
 /* Personal choices. */
 /* Video Thumbnail Changes. */
+.node.node-teaser .icon-bg, 
+.node.node-sidebar_teaser .icon-bg{
+    padding-left: 0px;
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+
+}
+
+
 .node.node-teaser:hover .icon-bg, 
 .node.node-sidebar_teaser:hover .icon-bg{
     background: #0000 !important
 }
-.left-icon.multiple-icon,
+a.left-icon.multiple-icon,
+.node.node-teaser .left-icon,
+.node.node-sidebar_teaser .left-icon,
 .right-icon.likes-icon,
 .left-icon.likes-icon{
-    background-color: rgba(0, 0, 0, .5);
+    background-color: hsla(0, 0%, 0%, .5);
     font-size: 13px ;
     padding-left: 4px;
     padding-right: 4px;
-    height: 20px
+    height: 20px;
+    margin-left: 0px
 }
-.private-video{
-    background-color: #00000080
+.left-icon.multiple-icon,
+.node.node-sidebar_teaser .left-icon{
+    margin-right: 3px
+}
+.node.node-sidebar_teaser .private-video{
+    background-color: hsla(0, 0%, 0%, .5)
 }
 /* I honestly always thought the floating double line on subforums and triple lines in threads with the pager were uneeded and ugly so this gets rid of that. */
 /* It's commented out by default though since I'm not sure how everyone else will feel about it and it's possible people are used it by now. 
