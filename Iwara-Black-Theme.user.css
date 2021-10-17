@@ -2,7 +2,7 @@
 /* ==UserStyle==
 @name Iwara.TV Black Theme
 @namespace https://github.com/Kurogal/Iwara-Black-Theme
-@version 1.1.7
+@version 1.1.8
 @description Pure black theme for Iwara.tv with additional minor site tweaks.
 @update https://github.com/Kurogal/Iwara-Black-Theme/raw/main/Iwara-Black-Theme.user.css
 @license Unlicense
@@ -10,6 +10,57 @@
 /* The erolabs link is needed for the iframes of advertisements from erolabs, set as a regexp to avoid it applying to the actual erolabs site. */
 #r18-warning{display:none!important} 
 /* Iwara can't remember your choice for very long and has separate memory for each type of page which I find gets annoying really fast. It currently doesn't seem to effect anything to skip the warning overlay as far as I could tell, if it does it's not much more then the natural instability of the current servers. */
+/* Buttons Primary #1abc9c */
+.btn-primary{
+    background-color: hsl(168, 76%, 32%)
+}
+/* Primary Button Hover #48c9b0 :hsl(168, 54%, 54%) */
+.btn-primary:hover,
+.btn-primary:focus{
+    background-color: hsl(168, 54%, 44%);
+    border-color: hsl(168, 54%, 44%)
+}
+/* Secondary Button #2ecc71  hsl(145, 63%, 49%) */
+.btn-success{
+    background-color: hsl(145, 63%, 39%)
+}
+/* Secondary Button Hover #58d68d r:hsl(145, 61%, 59%) */
+.btn-success:hover,
+.btn-success:focus{
+    background-color:hsl(145, 61%, 49%);
+    border-color: hsl(145, 61%, 49%);
+}
+/* Profile Button #3498db hsl(204, 70%, 53%) */
+.btn-info{
+    background-color: hsl(204, 70%, 43%)
+}
+/* Profile Button Hover #5dade2 hsl(204, 70%, 63%); */
+.btn-info:hover,
+.btn-info:focus,
+.btn-info:active{
+    background-color:hsl(204, 70%, 53%);
+    border-color: hsl(204, 70%, 53%)
+}
+/* Ecchi Button #e74c3c hsl(6, 78%, 57%)*/
+.btn-danger{
+    background-color: hsl(6, 78%, 47%)
+}
+/* Danger Hover #ec7063 r: hsl(6, 78%, 66%) */
+.btn-danger:hover,
+.btn-danger:focus{
+    background-color: hsl(6, 78%, 56%);
+    border-color: hsl(6, 78%, 56%);
+}
+/* The edit buttons are hard to read even on the default site since it uses a bright yellow (#f1c40f hsl(48, 89%, 50%) ) with white text, so it's lowered by 15 instead. */
+.btn-warning{
+    background-color: hsl(48, 89%, 35%)
+}
+/* #f4d313 hsl(51, 91%, 52%) */
+.btn-warning:hover,
+.btn-warning:focus{
+    background-color:hsl(51, 91%, 37%);
+    border-color:hsl(51, 91%, 37%);
+}
 /* Header, Main Body, Forums, Footer. */
 header .menu-bar,
 header .sub-menu,
@@ -81,10 +132,6 @@ section#content .container{
 .node.node-full .field-name-field-categories .field-items *{
     background-color: #111 !important
 }
-/* The edit profile button is hard to read even on the default site since it uses a bright yellow (#f1c40f hsl(48, 89%, 50%) ) with white text. */
-a.btn.btn-warning.btn-block{
-    background-color: hsl(48, 89%, 40%)
-}
 
 /* Links */
 
@@ -97,8 +144,7 @@ section#content .item-list a[id^=facetapi-link].facetapi-inactive.active,
 header .logo .site-name{
     color: hsl(168, 76%, 36%) !important
 }
-/* The default links also don't change color when you hover over them like on the search page, so this mimics that functionality. (Default #1abc9c hsl(168, 76%, 42%) ) added 5L to make it work better for most links. */
-
+/* These links also don't change color when you hover over them like the others, so this mimics that functionality. (Default #1abc9c hsl(168, 76%, 42%) ) added 5L to make it work better for most links. The main goal is to have all links this bright eventually.  */
 .node.node-teaser h3.title a:hover,
 .node.node-teaser h3.title a:focus,
 section#content .item-list a[id^=facetapi-link].facetapi-inactive.active:hover,
@@ -133,12 +179,15 @@ footer .block li a.session-active:hover,
 footer .block li a.session-active:focus{
     color: hsl(168, 76%, 30%) !important
 }
-/* The header links are also separate since it's hard to see the difference with the thin font they use without a bit of exaggeration, but with 5L since 10L is too much. */
+/* The header links are also separate since it's hard to see the difference with the thin font they use without a bit of exaggeration, but with 5L. */
 header .menu-bar .nav-pills > li > a:hover,
-header .menu-bar .nav-pills > li > a:focus,
 header .sub-menu .link a:hover,
 header .sub-menu .link a:focus{
-    color: #1dd3af !important
+    color: hsl(168, 76%, 47%) !important
+}
+/* Header focused brighter by 15 to be noticable against the brighter background. */
+header .menu-bar .nav-pills > li > a:focus{
+    color: hsl(168, 76%, 57%) !important
 }
 /* Links on the bottom (Contact Us, Discord, ect.) have a background color change to a slightly different white when you hover over them normally. */
 .nav > li > a:hover,
@@ -258,7 +307,7 @@ input[type="submit" i]{
     border-color: #fff 
 }
 
-/* Official Site CSS Fixes. */
+/* Official Site CSS Fixes & Changes. */
 /* Video/Image Suggestions & More By this User */
 /* Fix for the arrows that are a part of popup/hover over titles from drawing over the title. I don't think I can fix the arrow being in the wrong spot a quarter of the time. */
 .tooltip.top .tooltip-arrow{
@@ -275,7 +324,7 @@ table.sticky-header * {
     transition: 0s
 }
 /* Search Page Fix */
-/* The title bar often doesn't line up like it's supposed to and just crosses over the profile picture and title in the search page, even when it works properly it barely adds anything. */
+/* The title bar often doesn't line up like it's supposed to and just crosses over and impailes the profile picture and title in the search page. And even when it works properly it barely adds anything on the default site, so I just removed it. */
 .node .node-info .submitted h1.title {
     border-bottom: 0px
 }
@@ -286,14 +335,32 @@ table.sticky-header * {
       margin-right: 4px;
       margin-left: 4px;
 }
-
+/* Both halfs of the profile buttons are a slightly different size then the rest of the header buttons and eachother for a few reasons I could find like the bottom margin for the profile button being 10 instead of 9. It's possible that it's an artistic choice or it's jank like that for some other reason, so I have it at the bottom here. */
+a.btn.btn-info.btn-sm.user{
+    height: 34px
+}
+.btn-group.user-btn > button.btn.btn-info.btn-sm.dropdown-toggle{
+    padding-bottom: 9px
+}
 /* Edge Case Handling */
 /* This is here solely to handle transparent user pictures and not have them turn into inverted mush. https://www.iwara.tv/users/nightswordiajjdibalzet https://www.iwara.tv/forums/how-make-xray-effec */ 
 .view-profile.view-display-id-block .views-field-picture img,
 .node-type-forum .forum-post .user-picture a * {
     background-color: #fff !important
 }
-/* Personal choice. I honestly always thought the floating double line on subforums and triple lines in threads with the pager were uneeded and ugly so this gets rid of that. */
+/* Personal choices. */
+.node.node-teaser:hover .icon-bg, 
+.node.node-sidebar_teaser:hover .icon-bg{
+    background: #0000 !important
+}
+.left-icon.multiple-icon,
+.right-icon.likes-icon,
+.left-icon.likes-icon{
+    background-color: #000000a6;
+    padding-left: 4px;
+    padding-right: 4px
+}
+/* I honestly always thought the floating double line on subforums and triple lines in threads with the pager were uneeded and ugly so this gets rid of that. */
 /* It's commented out by default though since I'm not sure how everyone else will feel about it and it's possible people are used it by now. 
 .item-list > .pager{
     border-top: 0
