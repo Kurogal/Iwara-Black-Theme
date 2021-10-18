@@ -2,7 +2,7 @@
 /* ==UserStyle==
 @name Iwara.TV Black Theme
 @namespace https://github.com/Kurogal/Iwara-Black-Theme
-@version 1.2.2
+@version 1.2.3
 @description Pure black theme for Iwara.tv with additional minor site tweaks.
 @update https://github.com/Kurogal/Iwara-Black-Theme/raw/main/Iwara-Black-Theme.user.css
 @license Unlicense
@@ -228,10 +228,12 @@ html body div[id*="DLsite_blog_parts_00"] div.DLsite_bp_body dd.DLsite_bp_circle
 ul.playlists.list-unstyled,
 .form-control,
 textarea,
-.tooltip-inner,
 .form-text {
     color: hsl(168, 76%, 36%);
     background-color: #111 !important
+}
+.tooltip-inner {
+    background-color: #111
 }
 .resizable-textarea .grippie{
     background: #222 !important
@@ -392,9 +394,40 @@ a.left-icon.multiple-icon,
 .node.node-sidebar_teaser .private-video{
     background-color: hsla(0, 0%, 0%, .5)
 }
-/* I honestly always thought the floating double line on subforums and triple lines in threads with the pager were uneeded and ugly so this gets rid of that. */
-/* It's commented out by default though since I'm not sure how everyone else will feel about it and it's possible people are used it by now. 
+/* I honestly always thought the floating double line on subforums and triple lines in threads with the pager were uneeded and ugly personally. */
 .item-list > .pager{
-    border-top: 0
-} */
+    background-color: #111;
+    padding: 5px !important;
+    border: 1px solid #fff;
+}
+.item-list ul.pager li{
+    padding: 3px;
+    margin-left: 4px;
+    margin-right: 4px
+}
+#forum-comments .pager{
+    width: fit-content;
+    margin-left: auto; 
+    margin-right: 0;
+}
+/* I hated how the icons for which immage in a gallery you were on were inverted compared to the side bars. I don't really know if all these are needed, but whatever at this point, I wanna play with the staging site. */
+.slick-dots li button,
+.slick-dots li button:before{
+    color: #fff;
+    background-color: hsla(0, 0%, 0%, .3);
+    border-radius: 50%;
+    opacity: .5
+}
+.slick-initialized:hover .slick-dots button{
+    color: #fff;
+    background-color: hsla(0, 0%, 0%, .3);
+    border-radius: 50%;
+    opacity: .9
+}
+.slick-dots li.slick-active button:before{
+        color: #fff;
+    background-color: hsla(129, 0%, 0%, .8);
+    border-radius: 50%;
+    opacity: 1
+}
 }
