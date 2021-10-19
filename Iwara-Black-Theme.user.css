@@ -2,7 +2,7 @@
 /* ==UserStyle==
 @name Iwara.TV Black Theme
 @namespace https://github.com/Kurogal/Iwara-Black-Theme
-@version 1.2.6
+@version 1.2.7
 @description Pure black theme for Iwara.tv with additional minor site tweaks.
 @update https://github.com/Kurogal/Iwara-Black-Theme/raw/main/Iwara-Black-Theme.user.css
 @license Unlicense
@@ -231,6 +231,15 @@ li a.active{
     color: hsl(168, 76%, 36%);
     background-color: #111 !important
 }
+/* Weirdly there are various text field with their text color separately set to a very dark blue (#34495e) that's barely noticeable as not black against the normal white background.
+I'm making it white for now for visual consistency with other text fields, but it has the option of being changed easily here to a barely not white blue if it's needed. */
+/* Search box text */
+.views-exposed-form .form-item-query input,
+/* Content Page & Forum new topics */
+.page-node-edit .form-text,
+.page-node-add .form-textarea,
+.page-node-edit .form-textarea,
+/* Normal Text fields */
 .form-control,
 textarea,
 .form-text{
@@ -252,19 +261,6 @@ li a.active:focus{
 .dropdown-menu li a:focus{
     color: hsl(168, 76%, 47%) !important;
     background-color: #444 !important
-}
-/* Weirdly there are various text field with their text color separately set to a very dark blue (#34495e) that's barely noticeable as not black against the normal white background.
-I'm making it white for now for visual consistency with other text fields, but it has the option of being changed easily here to a barely not white blue if it's needed. */
-/* Forum new topics */
-.page-node-add .form-text,
-.page-node-edit .form-text,
-.page-node-add .form-textarea,
-.page-node-edit .form-textarea,
-/* Search box text */
-.views-exposed-form .form-item-query input,
-/* Content Page text */
-.page-node-edit .form-text{
-    color:#fff
 }
 /* Video Upload Page Original (#dedede, #eee, #fff) Hover (#ededdd) */
 
