@@ -2,7 +2,7 @@
 /* ==UserStyle==
 @name Iwara.TV Black Theme
 @namespace https://github.com/Kurogal/Iwara-Black-Theme
-@version 1.2.4
+@version 1.2.5
 @description Pure black theme for Iwara.tv with additional minor site tweaks.
 @update https://github.com/Kurogal/Iwara-Black-Theme/raw/main/Iwara-Black-Theme.user.css
 @license Unlicense
@@ -10,6 +10,7 @@
 /* The erolabs link is needed for the iframes of advertisements from erolabs, set as a regexp to avoid it applying to the actual erolabs site. */
 #r18-warning{display:none!important} 
 /* Iwara can't remember your choice for very long and has separate memory for each type of page which I find gets annoying really fast. It currently doesn't seem to effect anything to skip the warning overlay as far as I could tell, if it does it's not much more then the natural instability of the current servers. */
+/* Mobile Search Button´s color is set seperately, but I don't know how to change it without effecting the desktop site. #1abc9c */
 /* Buttons Primary #1abc9c */
 .btn-primary{
     background-color: hsl(168, 76%, 32%)
@@ -414,6 +415,17 @@ a.left-icon.multiple-icon,
     margin-right: 0;
 }
 /* I hated how the icons for which immage in a gallery you were on were inverted compared to the side bars. I don't really know if all these are needed, but whatever at this point, I wanna play with the staging site. */
+/* Left right buttons, done like this to avoid changing the functional size of the clickable area. */
+.slick-prev:before,
+.slick-next:before{
+    background-color: hsla(0, 0%, 0%, .3);
+    padding: 3px;
+    padding-bottom: 1px;
+    border-radius: 50%;
+}
+.slick-initialized:hover .slick-arrow{
+    background-color: transparent
+}
 .slick-dots li button,
 .slick-dots li button:before{
     color: #fff;
