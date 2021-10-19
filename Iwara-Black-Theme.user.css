@@ -2,7 +2,7 @@
 /* ==UserStyle==
 @name Iwara.TV Black Theme
 @namespace https://github.com/Kurogal/Iwara-Black-Theme
-@version 1.2.8
+@version 1.2.9
 @description Pure black theme for Iwara.tv with additional minor site tweaks.
 @update https://github.com/Kurogal/Iwara-Black-Theme/raw/main/Iwara-Black-Theme.user.css
 @license Unlicense
@@ -253,6 +253,16 @@ textarea,
 .resizable-textarea .grippie{
     background: #222 !important
 }
+/* Preview Banner text #234600 background #f8fff0 */
+.messages.status{
+    color:hsl(90, 100%, 94%);
+    background-color:hsl(88, 100%, 10%)
+}
+/* Preview main body. #ffffea hsl(60, 100%, 96%) */
+.preview .node{
+    background-color:hsl(60, 100%, 10%)
+}
+
 .dropdown-menu li a:hover,
 li a.active:hover,
 li a.active:focus{
