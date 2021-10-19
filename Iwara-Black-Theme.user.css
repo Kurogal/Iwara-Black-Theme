@@ -2,7 +2,7 @@
 /* ==UserStyle==
 @name Iwara.TV Black Theme
 @namespace https://github.com/Kurogal/Iwara-Black-Theme
-@version 1.2.7
+@version 1.2.8
 @description Pure black theme for Iwara.tv with additional minor site tweaks.
 @update https://github.com/Kurogal/Iwara-Black-Theme/raw/main/Iwara-Black-Theme.user.css
 @license Unlicense
@@ -236,6 +236,7 @@ I'm making it white for now for visual consistency with other text fields, but i
 /* Search box text */
 .views-exposed-form .form-item-query input,
 /* Content Page & Forum new topics */
+.page-node-add .form-text,
 .page-node-edit .form-text,
 .page-node-add .form-textarea,
 .page-node-edit .form-textarea,
