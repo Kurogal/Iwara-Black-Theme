@@ -2,7 +2,7 @@
 /* ==UserStyle==
 @name Iwara.TV Black Theme
 @namespace https://github.com/Kurogal/Iwara-Black-Theme
-@version 1.2.9
+@version 1.2.10
 @description Pure black theme for Iwara.tv with additional minor site tweaks.
 @update https://github.com/Kurogal/Iwara-Black-Theme/raw/main/Iwara-Black-Theme.user.css
 @license Unlicense
@@ -86,13 +86,13 @@ node-info,
 }
 /* Header Background colors. Originals: (Normal #34495e) (Hover/Focus #46627f), only kept the hue here. */
 .nav-pills > li.active > a{
-    background-color: hsl(210, 100%, 13%)
+    background-color: hsl(210, 100%, 13%) !important
 }
 header .menu-bar .nav-pills > li > a:hover{
-    background-color: hsl(211, 100%, 23%)
+    background-color: hsl(211, 100%, 23%) !important
 }
 header .menu-bar .nav-pills > li > a:focus{
-    background-color: hsl(211, 100%, 33%);
+    background-color: hsl(211, 100%, 33%) !important;
        color: hsl(168, 76%, 47%) !important
 }
 
@@ -137,10 +137,12 @@ section#content .container{
 /* Links */
 
 /* This is to give the video titles and the tags a nice color with the new black theme. */
+li a.active,
 header .sub-menu .link a,
 header .menu-bar .nav-pills > li > a,
 .node.node-teaser h3.title a,
 section#content .item-list a[id^=facetapi-link].facetapi-inactive.active,
+ul.playlists.list-unstyled,
 /* This last one is for the mobile version of the site. (Default #16a085) */
 header .logo .site-name{
     color: hsl(168, 76%, 36%) !important
@@ -155,13 +157,9 @@ section#content .item-list a[id^=facetapi-link].facetapi-inactive.active:focus,
 #block-mainblocks-user-connect .flag-follow a:focus,
 /* And finally the hover function still works for holding the link on mobile, so this is needed for consistency. */
 header .logo .site-name:hover,
-header .logo .site-name:focus{
-/* Scrapped test to enhance the hover over color of links that already do change, it'll have to go on the backburner if I don't wanna hunt down every single type of link, either the things I don't want to change like buttons or the reverse of doing every type of link I do want manually.
-a.username:hover,
-li.comment-reply.first.last a:hover,
-ul.list-unstyled *:hover,
-.comments *:hover{
-    color: hsl(294, 76%, 47%) !important; */
+header .logo .site-name:focus,
+li a.active:hover,
+li a.active:focus{
     color: hsl(168, 76%, 47%) !important;
     transition: .25s
 }
@@ -189,6 +187,20 @@ header .sub-menu .link a:focus{
 /* Header focused brighter by 15 to be noticable against the brighter background. */
 header .menu-bar .nav-pills > li > a:focus{
     color: hsl(168, 76%, 57%) !important
+}
+/* Drop Down Menu */
+.dropdown-menu, 
+.dropdown-menu li a{
+    color: hsl(168, 76%, 36%);
+    background-color: #111 !important
+}
+.dropdown-menu li a:hover{
+    color: hsl(168, 76%, 47%) !important;
+    background-color: #333 !important
+}
+.dropdown-menu li a:focus{
+    color: hsl(168, 76%, 47%) !important;
+    background-color: #444 !important
 }
 /* Links on the bottom (Contact Us, Discord, ect.) have a background color change to a slightly different white when you hover over them normally. */
 .nav > li > a:hover,
@@ -222,15 +234,7 @@ html body div[id*="DLsite_blog_parts_00"] div.DLsite_bp_body dt.DLsite_bp_work_n
 html body div[id*="DLsite_blog_parts_00"] div.DLsite_bp_body dd.DLsite_bp_circle_name a{
     color: #39f
 }
-
-/* Text Entry fields & Drop Down Menu */
-.dropdown-menu, 
-.dropdown-menu li a,
-ul.playlists.list-unstyled,
-li a.active{
-    color: hsl(168, 76%, 36%);
-    background-color: #111 !important
-}
+/* Text Entry fields */
 /* Weirdly there are various text field with their text color separately set to a very dark blue (#34495e) that's barely noticeable as not black against the normal white background.
 I'm making it white for now for visual consistency with other text fields, but it has the option of being changed easily here to a barely not white blue if it's needed. */
 /* Search box text */
@@ -261,17 +265,6 @@ textarea,
 /* Preview main body. #ffffea hsl(60, 100%, 96%) */
 .preview .node{
     background-color:hsl(60, 100%, 10%)
-}
-
-.dropdown-menu li a:hover,
-li a.active:hover,
-li a.active:focus{
-    color: hsl(168, 76%, 47%) !important;
-    background-color: #333 !important
-}
-.dropdown-menu li a:focus{
-    color: hsl(168, 76%, 47%) !important;
-    background-color: #444 !important
 }
 /* Video Upload Page Original (#dedede, #eee, #fff) Hover (#ededdd) */
 
