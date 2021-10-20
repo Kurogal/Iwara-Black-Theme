@@ -1,8 +1,8 @@
 @-moz-document domain("iwara.tv"), regexp("https://www\\.erolabs\\.com/(iwara|iwaraiframe)/.*") {
 /* ==UserStyle==
-@name Iwara.TV Black Theme
+@name Iwara.TV Black Theme Green Links
 @namespace https://github.com/Kurogal/Iwara-Black-Theme
-@version 1.2.10
+@version 1.2.11
 @description Pure black theme for Iwara.tv with additional minor site tweaks.
 @update https://github.com/Kurogal/Iwara-Black-Theme/raw/main/Iwara-Black-Theme.user.css
 @license Unlicense
@@ -134,6 +134,25 @@ section#content .container{
     background-color: #111 !important
 }
 
+/* Private Messages */
+/* Actions */
+select#edit-operation.form-select.ajax-processed{
+    background-color: #000
+}
+/* I don't know what the color is like for people messaging you so I just have to guess and use a wildcard to black it out. */
+.page-messages .private-message *{
+    background-color:#111 !important
+}
+/* My own messages #ecf0f1 */
+.page-messages .private-message .message.mine,
+.page-messages .private-message .message.mine *{
+    background-color:hsl(192, 15%, 14%) !important
+}        
+/* Timestamp #95a5a6 */
+.page-messages .private-message .message .message-info .time{
+    color: hsl(184, 9%, 72%)
+}
+
 /* Links */
 
 /* This is to give the video titles and the tags a nice color with the new black theme. */
@@ -160,6 +179,12 @@ header .logo .site-name:hover,
 header .logo .site-name:focus,
 li a.active:hover,
 li a.active:focus{
+/* Scrapped test to enhance the hover over color of links that already do change, it'll have to go on the backburner if I don't wanna hunt down every single type of link, either the things I don't want to change like buttons or the reverse of doing every type of link I do want manually.
+a.username:hover,
+li.comment-reply.first.last a:hover,
+ul.list-unstyled *:hover,
+.comments *:hover{
+    color: hsl(294, 76%, 47%) !important; */
     color: hsl(168, 76%, 47%) !important;
     transition: .25s
 }
@@ -187,20 +212,6 @@ header .sub-menu .link a:focus{
 /* Header focused brighter by 15 to be noticable against the brighter background. */
 header .menu-bar .nav-pills > li > a:focus{
     color: hsl(168, 76%, 57%) !important
-}
-/* Drop Down Menu */
-.dropdown-menu, 
-.dropdown-menu li a{
-    color: hsl(168, 76%, 36%);
-    background-color: #111 !important
-}
-.dropdown-menu li a:hover{
-    color: hsl(168, 76%, 47%) !important;
-    background-color: #333 !important
-}
-.dropdown-menu li a:focus{
-    color: hsl(168, 76%, 47%) !important;
-    background-color: #444 !important
 }
 /* Links on the bottom (Contact Us, Discord, ect.) have a background color change to a slightly different white when you hover over them normally. */
 .nav > li > a:hover,
@@ -233,6 +244,21 @@ html body div[id*="DLsite_blog_parts_00"] div.DLsite_bp_body dt.DLsite_bp_work_n
 }
 html body div[id*="DLsite_blog_parts_00"] div.DLsite_bp_body dd.DLsite_bp_circle_name a{
     color: #39f
+}
+
+/* Drop Down Menu */
+.dropdown-menu, 
+.dropdown-menu li a{
+    color: hsl(168, 76%, 36%);
+    background-color: #111 !important
+}
+.dropdown-menu li a:hover{
+    color: hsl(168, 76%, 47%) !important;
+    background-color: #333 !important
+}
+.dropdown-menu li a:focus{
+    color: hsl(168, 76%, 47%) !important;
+    background-color: #444 !important
 }
 /* Text Entry fields */
 /* Weirdly there are various text field with their text color separately set to a very dark blue (#34495e) that's barely noticeable as not black against the normal white background.
