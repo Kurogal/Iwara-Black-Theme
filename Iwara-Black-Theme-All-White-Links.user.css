@@ -1,0 +1,412 @@
+@-moz-document domain("iwara.tv"), regexp("https://www\\.erolabs\\.com/(iwara|iwaraiframe)/.*") {
+/* ==UserStyle==
+@name Iwara.TV Black Theme All White Links
+@namespace https://github.com/Kurogal/Iwara-Black-Theme
+@version 1.2.10
+@description Pure black theme for Iwara.tv with additional minor site tweaks.
+@update https://github.com/Kurogal/Iwara-Black-Theme/raw/main/Iwara-Black-Theme-All-White-Links.user.css
+@license Unlicense
+==/UserStyle== */
+/* The erolabs link is needed for the iframes of advertisements from erolabs, set as a regexp to avoid it applying to the actual erolabs site. */
+#r18-warning{display:none!important} 
+/* Iwara can't remember your choice for very long and has separate memory for each type of page which I find gets annoying really fast. It currently doesn't seem to effect anything to skip the warning overlay as far as I could tell, if it does it's not much more then the natural instability of the current servers. */
+/* Mobile Search Button´s color is set seperately, but I don't know how to change it without effecting the desktop site. #1abc9c */
+/* Buttons Primary #1abc9c */
+.btn-primary{
+    background-color: hsl(168, 76%, 32%)
+}
+/* Primary Button Hover #48c9b0 :hsl(168, 54%, 54%) */
+.btn-primary:hover,
+.btn-primary:focus{
+    background-color: hsl(168, 54%, 44%);
+    border-color: hsl(168, 54%, 44%)
+}
+/* Secondary Button #2ecc71  hsl(145, 63%, 49%) */
+.btn-success{
+    background-color: hsl(145, 63%, 39%)
+}
+/* Secondary Button Hover #58d68d r:hsl(145, 61%, 59%) */
+.btn-success:hover,
+.btn-success:focus{
+    background-color:hsl(145, 61%, 49%);
+    border-color: hsl(145, 61%, 49%);
+}
+/* Profile Button #3498db hsl(204, 70%, 53%) */
+.btn-info{
+    background-color: hsl(204, 70%, 43%)
+}
+/* Profile Button Hover #5dade2 hsl(204, 70%, 63%); */
+.btn-info:hover,
+.btn-info:focus,
+.btn-info:active{
+    background-color:hsl(204, 70%, 53%);
+    border-color: hsl(204, 70%, 53%)
+}
+/* Ecchi Button #e74c3c hsl(6, 78%, 57%)*/
+.btn-danger{
+    background-color: hsl(6, 78%, 47%)
+}
+/* Danger Hover #ec7063 r: hsl(6, 78%, 66%) */
+.btn-danger:hover,
+.btn-danger:focus{
+    background-color: hsl(6, 78%, 56%);
+    border-color: hsl(6, 78%, 56%);
+}
+/* The edit buttons are hard to read even on the default site since it uses a bright yellow (#f1c40f hsl(48, 89%, 50%) ) with white text, so it's lowered by 15 instead. */
+.btn-warning{
+    background-color: hsl(48, 89%, 35%)
+}
+/* #f4d313 hsl(51, 91%, 52%) */
+.btn-warning:hover,
+.btn-warning:focus{
+    background-color:hsl(51, 91%, 37%);
+    border-color:hsl(51, 91%, 37%);
+}
+/* Header, Main Body, Forums, Footer. */
+header .menu-bar,
+header .sub-menu,
+body,
+.node.node-full.node-video .node-info,
+.node.node-full.node-image .node-info.node-info,
+.node.node-full .node-buttons,
+.panel-title > a,
+.well,
+.well .row .col-md-6 [id=ctools-jump-menu] *,
+.row > .col-sm-6 [id=advanced-forum-forum-topic-list-sort-form] *,
+.row > .col-sm-6 [id=ctools-jump-menu] *,
+footer{
+    color:#fff;
+    background-color: #000
+}
+node-info,
+.view-profile.view-display-id-block,
+.view-profile.view-display-id-block .views-field-field-about{
+    background-color: transparent;
+    box-shadow: 0px 0px 0px 0px
+}
+/* Header Background colors. Originals: (Normal #34495e) (Hover/Focus #46627f), only kept the hue here. */
+.nav-pills > li.active > a{
+    background-color: hsl(210, 100%, 13%) !important
+}
+header .menu-bar .nav-pills > li > a:hover{
+    background-color: hsl(211, 100%, 23%) !important
+}
+header .menu-bar .nav-pills > li > a:focus{
+    background-color: hsl(211, 100%, 33%) !important;
+       color: hsl(168, 76%, 47%) !important
+}
+
+/* Video Player Adjustments */
+/* The default color of the video bar is rgba(43,51,63,.7), I just tanked the HSLA saturation to 0. */
+.video-js .vjs-control-bar,
+.vjs-menu-button-popup .vjs-menu .vjs-menu-content{
+    background-color: hsla(216, 0%, 21%, .7)
+}
+/* The hover menu is rgba(115,133,159,.5), also lowered by L by 14 since it was too bright. */
+.vjs-menu li:hover,
+.vjs-menu li:focus{
+    background-color: hsla(215, 0%, 40%, .5) 
+}
+/* Selected bar is just #2B333F, I just ignored it completely. */
+.vjs-menu li.vjs-selected{
+    color: #fff;
+    background-color: hsla(0, 0%, 0%, .5)
+}
+.vjs-menu li.vjs-selected:hover,
+.vjs-menu li.vjs-selected:focus{
+    color: #fff;
+    background-color: hsla(0, 0%, 0%, .35)
+}
+
+/* Profiles */
+
+/* I've gone with making the profile backgrounds partially transparent here instead of making it fully opaque, to show off profiles with nice texture backgrounds like https://www.iwara.tv/users/ratzy while handling very bright backgrounds like https://ecchi.iwara.tv/users/hoay and https://www.iwara.tv/users/jaimeisaac and still keeping it generally in the dark theme. Even in the worst case I found of a user with a pure white PNG background for some odd reason it wasn't a complete train wreck. https://ecchi.iwara.tv/users/ymrd */
+section#content .container{
+    background-color: #000c   
+}
+/* I got rid of the border because links in the profile box get real ugly real fast with it. https://www.iwara.tv/users/3dimm-animations */
+.view-profile.view-display-id-block .views-field-field-about{
+    border: 0px
+}
+.node.node-full .field-name-body a.show, 
+.node.node-full .field-name-field-image-categories .field-items *,
+.node.node-full .field-name-field-categories .field-items *{
+    background-color: #111 !important
+}
+
+/* Links */
+a,
+a:hover,
+a:focus,
+header .menu-bar .nav-pills > li > a:focus,
+footer .block li a,
+footer .block li a:hover,
+footer .block li a:focus,
+footer .block li a.active-trail,
+footer .block li a.session-active
+{
+    color: #fff !important
+}
+/* Drop Down Menu */
+.dropdown-menu, 
+.dropdown-menu li a{
+    background-color: #111 !important
+}
+.dropdown-menu li a:hover{
+    background-color: #333 !important
+}
+.dropdown-menu li a:focus{
+    background-color: #444 !important
+}
+/* Links on the bottom (Contact Us, Discord, ect.) have a background color change to a slightly different white when you hover over them normally. */
+.nav > li > a:hover,
+.nav > li > a:focus{
+    background-color: transparent
+}
+/* Name link default color ( #95a5a6 hsl(184, 9%, 62%) ) I decided to just go with +10s, and +10 L for hover to keep the saturation down enough that you don't notice too much that it's actually a cyan color. */
+.node.node-teaser .username{
+    color: hsl(184, 19%, 62%)
+}
+.node.node-teaser .username:hover,
+.node.node-teaser .username:focus{
+    color: hsl(184, 19%, 72%)
+}
+/* I really wanted to add hover over for full titles on really long video/images that get their name truncated like on YouTube, but the page doesn't store the full titles and also seems to do it in a really weird way like looking at some videos on this channel: https://ecchi.iwara.tv/users/キアヌ・リーブス so that seems impossible to do in a reasonable way for now. */
+
+/* Private Warning, original color is #fcf8e3 hsl(50, 81%, 94%), l reduced to 30% */
+p.bg-warning{
+    background-color: #8a760f
+}
+
+/* DLsite ads */
+html body div[id*="DLsite_blog_parts_00"] div.DLsite_bp_body{
+    background-color: #000;
+    border: solid 1px #fff
+}
+/* Original colors: (Work #039) (Circle #06c) My first picks were done by hand and feel (Work #0055ff) (Circle #0080ff) but I decided to use a set method of raising the HSLA lightness for both by 20 instead. */
+html body div[id*="DLsite_blog_parts_00"] div.DLsite_bp_body dt.DLsite_bp_work_name a{
+    color: #05f
+}
+html body div[id*="DLsite_blog_parts_00"] div.DLsite_bp_body dd.DLsite_bp_circle_name a{
+    color: #39f
+}
+/* Text Entry fields */
+/* Weirdly there are various text field with their text color separately set to a very dark blue (#34495e) that's barely noticeable as not black against the normal white background.
+I'm making it white for now for visual consistency with other text fields, but it has the option of being changed easily here to a barely not white blue if it's needed. */
+/* Search box text */
+.views-exposed-form .form-item-query input,
+/* Content Page & Forum new topics */
+.page-node-add .form-text,
+.page-node-edit .form-text,
+.page-node-add .form-textarea,
+.page-node-edit .form-textarea,
+/* Normal Text fields */
+.form-control,
+textarea,
+.form-text{
+ color:#fff;
+    background-color: #111
+}
+.tooltip-inner {
+    background-color: #111
+}
+.resizable-textarea .grippie{
+    background: #222 !important
+}
+/* Preview Banner text #234600 background #f8fff0 */
+.messages.status{
+    color:hsl(90, 100%, 94%);
+    background-color:hsl(88, 100%, 10%)
+}
+/* Preview main body. #ffffea hsl(60, 100%, 96%) */
+.preview .node{
+    background-color:hsl(60, 100%, 10%)
+}
+/* Video Upload Page Original (#dedede, #eee, #fff) Hover (#ededdd) */
+
+.horizontal-tabs ul.horizontal-tabs-list{
+    background-color: hsl(0, 0%, 13%)
+}
+.horizontal-tabs ul.horizontal-tabs-list li{
+    background-color: hsl(0, 0%, 7%)
+}
+.horizontal-tabs ul.horizontal-tabs-list li.selected,
+/* The site's default CSS makes the button flash white when you hover over. Hopefully flashing black will be less noticable with how dark the page is now. */
+.horizontal-tabs ul.horizontal-tabs-list li:hover,
+.horizontal-tabs ul.horizontal-tabs-list li:focus{
+    background-color: hsl(0, 0%, 0%)
+}
+.horizontal-tabs ul.horizontal-tabs-list .selected strong{
+    color: #fff
+}
+.horizontal-tabs ul.horizontal-tabs-list li a:hover,
+.horizontal-tabs ul.horizontal-tabs-list li a:focus{
+    background-color: hsl(60, 31%, 10%)
+}
+
+/* Messages, Playlist, & Content Page */
+.page-messages #privatemsg-list-form tr,
+.node-playlist.node-wide_teaser,
+tr.even,
+tr.draggable.even
+{
+    background-color: #000
+}
+tr.odd,
+tr.draggable.odd{
+    background-color: #111
+}
+tr.even,
+tr.odd{
+    border-bottom: 1px solid #fff
+}
+
+/* Forums */
+.panel-default > .panel-heading,
+.panel,
+.panel-footer,
+.table > thead:first-child > tr:first-child > th,
+.table-striped > tbody > tr:nth-child(even) > td, .table-striped > tbody > tr:nth-child(even)
+{
+    background: #000 !important
+}
+/* Odd Table Forums */
+.view-id-content table > tbody > tr:nth-child(odd) > td, .view-id-content table > tbody > tr:nth-child(odd) > th,
+.table-striped > tbody > tr:nth-child(odd) > td, .table-striped > tbody > tr:nth-child(odd),
+/* BBCode Guide Page. */
+pre{
+    background: #111
+}
+code{
+    background: hsl(0, 0%, 23%)
+}
+/* Sort button borders */
+.form-item.form-type-select *,
+input[type="submit" i]{
+    border-color: #fff 
+}
+
+/* Official Site CSS Fixes & Changes. */
+/* Video/Image Suggestions & More By this User */
+/* Fix for the arrows that are a part of popup/hover over titles from drawing over the title. I don't think I can fix the arrow being in the wrong spot a quarter of the time. */
+.tooltip.top .tooltip-arrow{
+    border-top-color: #111;
+    z-index: -1
+}
+/* Forums Fixes */
+/* These are to fix two issues the official CSS has where thread icons are drawn over the sticky header, and the transition away when the sticky header is hidden causing the text to linker floating for 0.25s before and after the header goes away. */
+table.sticky-header{
+    background-color: #000 !important;
+    z-index: 9
+}
+table.sticky-header * {
+    transition: 0s
+}
+/* Search Page Fix */
+/* The title bar often doesn't line up like it's supposed to and just crosses over and impailes the profile picture and title in the search page. And even when it works properly it barely adds anything on the default site, so I just removed it. */
+.node .node-info .submitted h1.title {
+    border-bottom: 0px
+}
+/* Content Page Fix */
+/* For some reason on the content page the Save and Delete buttons have no margin between them so they're fused together. The site seems to use 7.5 as it's margin on most pages but I just went with 4 twice here. */
+.form-actions.form-wrapper input[id=edit-submit],
+.form-actions.form-wrapper input[id=edit-delete]{
+      margin-right: 4px;
+      margin-left: 4px;
+}
+/* Both halfs of the profile buttons are a slightly different size then the rest of the header buttons and eachother for a few reasons I could find like the bottom margin for the profile button being 10 instead of 9. It's possible that it's an artistic choice or it's jank like that for some other reason, so I have it at the bottom here. */
+a.btn.btn-info.btn-sm.user{
+    height: 34px
+}
+.btn-group.user-btn > button.btn.btn-info.btn-sm.dropdown-toggle{
+    padding-bottom: 9px
+}
+/* Edge Case Handling */
+/* This is here solely to handle transparent user pictures and not have them turn into inverted mush. https://www.iwara.tv/users/nightswordiajjdibalzet https://www.iwara.tv/forums/how-make-xray-effec */ 
+.view-profile.view-display-id-block .views-field-picture img,
+.node-type-forum .forum-post .user-picture a * {
+    background-color: #fff !important
+}
+/* Personal choices. */
+/* Video Thumbnail Changes. */
+.node.node-teaser .icon-bg, 
+.node.node-sidebar_teaser .icon-bg{
+    padding-left: 0px;
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+
+}
+
+
+.node.node-teaser:hover .icon-bg, 
+.node.node-sidebar_teaser:hover .icon-bg{
+    background: #0000 !important
+}
+a.left-icon.multiple-icon,
+.node.node-teaser .left-icon,
+.node.node-sidebar_teaser .left-icon,
+.right-icon.likes-icon,
+.left-icon.likes-icon{
+    background-color: hsla(0, 0%, 0%, .5);
+    font-size: 13px ;
+    padding-left: 4px;
+    padding-right: 4px;
+    height: 20px;
+    margin-left: 0px
+}
+.left-icon.multiple-icon,
+.node.node-sidebar_teaser .left-icon{
+    margin-right: 3px
+}
+.node.node-sidebar_teaser .private-video{
+    background-color: hsla(0, 0%, 0%, .5)
+}
+/* I honestly always thought the floating double line on subforums and triple lines in threads with the pager were uneeded and ugly personally. */
+.item-list > .pager{
+    background-color: #111;
+    padding: 5px !important;
+    border: 1px solid #fff
+}
+.item-list ul.pager li{
+    padding: 3px;
+    margin-left: 4px;
+    margin-right: 4px
+}
+#forum-comments .pager{
+    width: fit-content;
+    margin-left: auto; 
+    margin-right: 0;
+}
+/* I hated how the icons for which immage in a gallery you were on were inverted compared to the side bars. I don't really know if all these are needed, but whatever at this point, I wanna play with the staging site. */
+/* Left right buttons, done like this to avoid changing the functional size of the clickable area. */
+.slick-prev:before,
+.slick-next:before{
+    background-color: hsla(0, 0%, 0%, .3);
+    padding: 3px;
+    padding-bottom: 1px;
+    border-radius: 50%;
+}
+.slick-initialized:hover .slick-arrow{
+    background-color: transparent
+}
+.slick-dots li button,
+.slick-dots li button:before{
+    color: #fff;
+    background-color: hsla(0, 0%, 0%, .3);
+    border-radius: 50%;
+    opacity: .5
+}
+.slick-initialized:hover .slick-dots button{
+    color: #fff;
+    background-color: hsla(0, 0%, 0%, .3);
+    border-radius: 50%;
+    opacity: .9
+}
+.slick-dots li.slick-active button:before{
+        color: #fff;
+    background-color: hsla(129, 0%, 0%, .8);
+    border-radius: 50%;
+    opacity: 1
+}
+}
