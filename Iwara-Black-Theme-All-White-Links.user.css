@@ -2,7 +2,7 @@
 /* ==UserStyle==
 @name Iwara.TV Black Theme All White Links
 @namespace https://github.com/Kurogal/Iwara-Black-Theme
-@version 1.2.10
+@version 1.2.11
 @description Pure black theme for Iwara.tv with additional minor site tweaks.
 @update https://github.com/Kurogal/Iwara-Black-Theme/raw/main/Iwara-Black-Theme-All-White-Links.user.css
 @license Unlicense
@@ -86,13 +86,13 @@ node-info,
 }
 /* Header Background colors. Originals: (Normal #34495e) (Hover/Focus #46627f), only kept the hue here. */
 .nav-pills > li.active > a{
-    background-color: hsl(210, 100%, 13%) !important
+    background-color: hsl(210, 100%, 8%) !important
 }
 header .menu-bar .nav-pills > li > a:hover{
-    background-color: hsl(211, 100%, 23%) !important
+    background-color: hsl(211, 100%, 18%) !important
 }
 header .menu-bar .nav-pills > li > a:focus{
-    background-color: hsl(211, 100%, 33%) !important;
+    background-color: hsl(211, 100%, 28%) !important;
        color: hsl(168, 76%, 47%) !important
 }
 
@@ -134,19 +134,42 @@ section#content .container{
     background-color: #111 !important
 }
 
+/* Private Messages */
+/* Actions */
+select#edit-operation.form-select.ajax-processed{
+    background-color: #000
+}
+/* I don't know what the color is like for people messaging you so I just have to guess and use a wildcard to black it out. */
+.page-messages .private-message *{
+    background-color:#111 !important
+}
+/* My own messages #ecf0f1 */
+.page-messages .private-message .message.mine,
+.page-messages .private-message .message.mine *{
+    background-color:hsl(192, 15%, 14%) !important
+}        
+/* Timestamp #95a5a6 */
+.page-messages .private-message .message .message-info .time{
+    color: hsl(184, 9%, 72%)
+}
+
 /* Links */
 a,
-a:hover,
-a:focus,
-header .menu-bar .nav-pills > li > a:focus,
 footer .block li a,
-footer .block li a:hover,
-footer .block li a:focus,
 footer .block li a.active-trail,
 footer .block li a.session-active
 {
     color: #fff !important
 }
+
+a:hover,
+a:focus,
+header .menu-bar .nav-pills > li > a:focus,
+footer .block li a:hover,
+footer .block li a:focus{
+    color: hsl(0, 0%, 80%) !important
+}
+
 /* Drop Down Menu */
 .dropdown-menu, 
 .dropdown-menu li a{
