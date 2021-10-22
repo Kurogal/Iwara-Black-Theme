@@ -2,7 +2,7 @@
 /* ==UserStyle==
 @name Iwara.TV Black Theme Green Links
 @namespace https://github.com/Kurogal/Iwara-Black-Theme
-@version 1.2.11
+@version 1.2.12
 @description Pure black theme for Iwara.tv with additional minor site tweaks.
 @update https://github.com/Kurogal/Iwara-Black-Theme/raw/main/Iwara-Black-Theme.user.css
 @license Unlicense
@@ -161,7 +161,6 @@ header .sub-menu .link a,
 header .menu-bar .nav-pills > li > a,
 .node.node-teaser h3.title a,
 section#content .item-list a[id^=facetapi-link].facetapi-inactive.active,
-ul.playlists.list-unstyled,
 /* This last one is for the mobile version of the site. (Default #16a085) */
 header .logo .site-name{
     color: hsl(168, 76%, 36%) !important
@@ -248,7 +247,9 @@ html body div[id*="DLsite_blog_parts_00"] div.DLsite_bp_body dd.DLsite_bp_circle
 
 /* Drop Down Menu */
 .dropdown-menu, 
-.dropdown-menu li a{
+.dropdown-menu li a,
+/* Video add to playlist button. */
+ul.playlists.list-unstyled{
     color: hsl(168, 76%, 36%);
     background-color: #111 !important
 }
