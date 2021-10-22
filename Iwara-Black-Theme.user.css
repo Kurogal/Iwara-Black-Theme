@@ -2,7 +2,7 @@
 /* ==UserStyle==
 @name Iwara.TV Black Theme Green Links
 @namespace https://github.com/Kurogal/Iwara-Black-Theme
-@version 1.2.12
+@version 1.3.0
 @description Pure black theme for Iwara.tv with additional minor site tweaks.
 @update https://github.com/Kurogal/Iwara-Black-Theme/raw/main/Iwara-Black-Theme.user.css
 @license Unlicense
@@ -12,12 +12,18 @@
 /* Iwara can't remember your choice for very long and has separate memory for each type of page which I find gets annoying really fast. It currently doesn't seem to effect anything to skip the warning overlay as far as I could tell, if it does it's not much more then the natural instability of the current servers. */
 /* Mobile Search Button´s color is set seperately, but I don't know how to change it without effecting the desktop site. #1abc9c */
 /* Buttons Primary #1abc9c */
-.btn-primary{
+.btn-primary,
+.page-user .view-videos.view-display-id-block_2 .more-link a,
+.page-user .view-images.view-display-id-block_3 .more-link a{
     background-color: hsl(168, 76%, 32%)
 }
 /* Primary Button Hover #48c9b0 :hsl(168, 54%, 54%) */
 .btn-primary:hover,
-.btn-primary:focus{
+.btn-primary:focus,
+.page-user .view-videos.view-display-id-block_2 .more-link a:hover,
+.page-user .view-videos.view-display-id-block_2 .more-link a:focus,
+.page-user .view-images.view-display-id-block_3 .more-link a:hover,
+.page-user .view-images.view-display-id-block_3 .more-link a:focus{
     background-color: hsl(168, 54%, 44%);
     border-color: hsl(168, 54%, 44%)
 }
@@ -119,6 +125,12 @@ header .menu-bar .nav-pills > li > a:focus{
 }
 
 /* Profiles */
+
+/* Following you badge. #d9edf7
+Shout out to https://www.iwara.tv/users/nz141 for just randomly follwing me when I have no videos. */
+p.bg-info{
+    background-color: hsl(200, 65%, 21%)
+}
 
 /* I've gone with making the profile backgrounds partially transparent here instead of making it fully opaque, to show off profiles with nice texture backgrounds like https://www.iwara.tv/users/ratzy while handling very bright backgrounds like https://ecchi.iwara.tv/users/hoay and https://www.iwara.tv/users/jaimeisaac and still keeping it generally in the dark theme. Even in the worst case I found of a user with a pure white PNG background for some odd reason it wasn't a complete train wreck. https://ecchi.iwara.tv/users/ymrd */
 section#content .container{
@@ -245,10 +257,52 @@ html body div[id*="DLsite_blog_parts_00"] div.DLsite_bp_body dd.DLsite_bp_circle
     color: #39f
 }
 
+/* Side Menus */
+
+/* Warning message
+background-color: #fef5f1; color: #8c2e0b; border-color: #ed541d;*/
+/* Error Text */
+.error{
+    color: hsl(16, 85%, 90%)
+}
+/* Error Banner */
+div.error,
+table tr.error{
+    background-color: hsl(18, 87%, 7%);
+    color: hsl(16, 85%, 90%)
+}
+/* Pending Friends & Content Warning banner.
+Text #840 - Background #fffce5 */
+
+/* Warning Text */
+.warning{
+    color:hsl(30, 100%, 67%)
+}
+/* Warning Banner */
+div.warning,
+/* Friends */
+.table > tbody > tr.warning > td{
+    color:hsl(30, 100%, 67%);
+    background-color:hsl(53, 100%, 7%)
+}
+
+/* Hover Over Pending Friend
+ Text #884400 - Background #faf2cc */
+.table-hover > tbody > tr.warning:hover > td{
+    color:hsl(30, 100%, 73%);
+    background-color: hsl(50, 82%, 12%)
+}
+
+/* Friends Menu Hover #f5f5f5 */
+.table-hover > tbody > tr:hover > td, 
+.table-hover > tbody > tr:hover > th{
+    background-color: hsl(0, 0%, 6%)
+}
+
 /* Drop Down Menu */
 .dropdown-menu, 
 .dropdown-menu li a,
-/* Video add to playlist button. */
+/* "Add to" playlist button on videos. */
 ul.playlists.list-unstyled{
     color: hsl(168, 76%, 36%);
     background-color: #111 !important
@@ -380,11 +434,22 @@ table.sticky-header * {
 }
 /* Content Page Fix */
 /* For some reason on the content page the Save and Delete buttons have no margin between them so they're fused together. The site seems to use 7.5 as it's margin on most pages but I just went with 4 twice here. */
+input[id=edit-field-videos-und-add-more],
 .form-actions.form-wrapper input[id=edit-submit],
 .form-actions.form-wrapper input[id=edit-delete]{
       margin-right: 4px;
       margin-left: 4px;
+      background-color: hsl(168, 76%, 32%) !important;
+      border-color: hsl(168, 76%, 32%) !important
 }
+input[id=edit-field-videos-und-add-more]:hover,
+.form-actions.form-wrapper input[id=edit-submit]:hover,
+.form-actions.form-wrapper input[id=edit-delete]:hover{
+    background-color: hsl(168, 54%, 44%) !important;
+    border-color: hsl(168, 54%, 44%) !important
+}
+/* I can't seem to change the color of the delete Content button without effecting the above as well, so the delete buttons is now just a low budget green button. */
+
 /* Both halfs of the profile buttons are a slightly different size then the rest of the header buttons and eachother for a few reasons I could find like the bottom margin for the profile button being 10 instead of 9. It's possible that it's an artistic choice or it's jank like that for some other reason, so I have it at the bottom here. */
 a.btn.btn-info.btn-sm.user{
     height: 34px
@@ -434,6 +499,15 @@ a.left-icon.multiple-icon,
     background-color: hsla(0, 0%, 0%, .5)
 }
 /* I honestly always thought the floating double line on subforums and triple lines in threads with the pager were uneeded and ugly personally. */
+
+/* In Advance, to protect profiles from these changes. */
+.content .profile dl dd .comment-wrapper.has-comments .item-list > .pager,
+.view.view-journals.view-id-journals .item-list > .pager{
+    background-color: #0000;
+    padding: 0 !important;
+    border: none !important
+}
+
 .item-list > .pager{
     background-color: #111;
     padding: 5px !important;
