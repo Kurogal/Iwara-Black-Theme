@@ -2,7 +2,7 @@
 /* ==UserStyle==
 @name Iwara.TV Black Theme All White Links
 @namespace https://github.com/Kurogal/Iwara-Black-Theme
-@version 1.2.11
+@version 1.2.12
 @description Pure black theme for Iwara.tv with additional minor site tweaks.
 @update https://github.com/Kurogal/Iwara-Black-Theme/raw/main/Iwara-Black-Theme-All-White-Links.user.css
 @license Unlicense
@@ -172,7 +172,9 @@ footer .block li a:focus{
 
 /* Drop Down Menu */
 .dropdown-menu, 
-.dropdown-menu li a{
+.dropdown-menu li a,
+/* "Add to" playlist button on videos. */
+ul.playlists.list-unstyled{
     background-color: #111 !important
 }
 .dropdown-menu li a:hover{
