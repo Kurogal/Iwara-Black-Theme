@@ -123,6 +123,10 @@ header .menu-bar .nav-pills > li > a:focus{
     color: #fff;
     background-color: hsla(0, 0%, 0%, .35)
 }
+/* Private Warning, original color is #fcf8e3 hsl(50, 81%, 94%), l reduced to 30% */
+p.bg-warning{
+    background-color: #8a760f
+}
 
 /* Profiles */
 
@@ -224,11 +228,9 @@ header .sub-menu .link a:focus{
 header .menu-bar .nav-pills > li > a:focus{
     color: hsl(168, 76%, 57%) !important
 }
-/* Links on the bottom (Contact Us, Discord, ect.) have a background color change to a slightly different white when you hover over them normally. */
-.nav > li > a:hover,
-.nav > li > a:focus{
-    background-color: transparent
-}
+
+/* End of Green Links */
+
 /* Name link default color ( #95a5a6 hsl(184, 9%, 62%) ) I decided to just go with +10s, and +10 L for hover to keep the saturation down enough that you don't notice too much that it's actually a cyan color. */
 .node.node-teaser .username{
     color: hsl(184, 19%, 62%)
@@ -238,11 +240,6 @@ header .menu-bar .nav-pills > li > a:focus{
     color: hsl(184, 19%, 72%)
 }
 /* I really wanted to add hover over for full titles on really long video/images that get their name truncated like on YouTube, but the page doesn't store the full titles and also seems to do it in a really weird way like looking at some videos on this channel: https://ecchi.iwara.tv/users/キアヌ・リーブス so that seems impossible to do in a reasonable way for now. */
-
-/* Private Warning, original color is #fcf8e3 hsl(50, 81%, 94%), l reduced to 30% */
-p.bg-warning{
-    background-color: #8a760f
-}
 
 /* DLsite ads */
 html body div[id*="DLsite_blog_parts_00"] div.DLsite_bp_body{
@@ -255,6 +252,12 @@ html body div[id*="DLsite_blog_parts_00"] div.DLsite_bp_body dt.DLsite_bp_work_n
 }
 html body div[id*="DLsite_blog_parts_00"] div.DLsite_bp_body dd.DLsite_bp_circle_name a{
     color: #39f
+}
+
+/* Links on the bottom (Contact Us, Discord, ect.) have a background color change to a slightly different white when you hover over them normally. */
+.nav > li > a:hover,
+.nav > li > a:focus{
+    background-color: transparent
 }
 
 /* Side Menus */
