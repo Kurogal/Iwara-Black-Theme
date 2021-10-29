@@ -2,7 +2,7 @@
 /* ==UserStyle==
 @name Iwara.TV Black Theme All White Links
 @namespace https://github.com/Kurogal/Iwara-Black-Theme
-@version 1.3.0
+@version 1.3.1
 @description Pure black theme for Iwara.tv with additional minor site tweaks.
 @update https://github.com/Kurogal/Iwara-Black-Theme/raw/main/Iwara-Black-Theme-All-White-Links.user.css
 @license Unlicense
@@ -92,13 +92,13 @@ node-info,
 }
 /* Header Background colors. Originals: (Normal #34495e) (Hover/Focus #46627f), only kept the hue here. */
 .nav-pills > li.active > a{
-    background-color: hsl(210, 100%, 13%) !important
+    background-color: hsl(210, 100%, 8%) !important
 }
 header .menu-bar .nav-pills > li > a:hover{
-    background-color: hsl(211, 100%, 23%) !important
+    background-color: hsl(211, 100%, 18%) !important
 }
 header .menu-bar .nav-pills > li > a:focus{
-    background-color: hsl(211, 100%, 33%) !important;
+    background-color: hsl(211, 100%, 28%) !important;
        color: hsl(168, 76%, 47%) !important
 }
 
@@ -239,15 +239,15 @@ div.warning,
 .dropdown-menu li a,
 /* "Add to" playlist button on videos. */
 ul.playlists.list-unstyled{
-    color: hsl(168, 76%, 36%);
+    color: hsl(0, 0%, 100%);
     background-color: #111 !important
 }
 .dropdown-menu li a:hover{
-    color: hsl(168, 76%, 47%) !important;
+    color: hsl(0, 0%, 90%) !important;
     background-color: #333 !important
 }
 .dropdown-menu li a:focus{
-    color: hsl(168, 76%, 47%) !important;
+    color: hsl(0, 0%, 80%) !important;
     background-color: #444 !important
 }
 /* Text Entry fields */
@@ -488,5 +488,10 @@ a.left-icon.multiple-icon,
     background-color: hsla(129, 0%, 0%, .8);
     border-radius: 50%;
     opacity: 1
+}
+/* Mobile - This is to fix the awful way the thumbnails work on a users video page and subscriptions, to try and match the way things work on the normal video page. */
+.views-column.col-sm-3{
+    max-width: 50%;
+    float: left;
 }
 }
