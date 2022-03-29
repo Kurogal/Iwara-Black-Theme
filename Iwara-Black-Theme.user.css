@@ -1,6 +1,6 @@
 @-moz-document domain("iwara.tv"), regexp("https://www\\.erolabs\\.com/(iwara|iwaraiframe)/.*") {
 /* ==UserStyle==
-@name Iwara.TV Black Theme Green Links
+@name Iwara.TV Black & Classic Green Theme
 @namespace https://github.com/Kurogal/Iwara-Black-Theme
 @version 1.3.3
 @description Pure black theme for Iwara.tv with additional minor site tweaks.
@@ -572,5 +572,9 @@ a.left-icon.multiple-icon,
 }
 .node-image.node-full .field-name-field-images .slick-slider{
     height: fit-content
+}
+/* The register page's time zone location. Replace with .form-item.form-type-select *, input[type="submit" i] as a general cure for every text dropdown, but it causes stuff that isn't text fields to also turn this color. */
+select#edit-timezone--2{
+    background-color:#111
 }
 }
