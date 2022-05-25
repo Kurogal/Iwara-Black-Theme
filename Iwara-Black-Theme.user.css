@@ -2,7 +2,7 @@
 /* ==UserStyle==
 @name Iwara.TV Black Theme
 @namespace https://github.com/Kurogal/Iwara-Black-Theme
-@version 1.3.4
+@version 1.3.5
 @description Pure black theme for Iwara.tv with additional minor site tweaks.
 @update https://github.com/Kurogal/Iwara-Black-Theme/raw/main/Iwara-Black-Theme.user.css
 @license Unlicense
@@ -576,5 +576,29 @@ a.left-icon.multiple-icon,
 /* The register page's time zone location. Replace with .form-item.form-type-select *, input[type="submit" i] as a general cure for every text dropdown, but it causes stuff that isn't text fields to also turn this color. */
 select#edit-timezone--2{
     background-color:#111
+}
+    /*Playlist Menu that only shows up if you try to watch a private video in a playlist.
+
+It has a overflow menu scrollbar, but figuring out how to style the scroll bar of a page people will almost never see is a bit more effor than I care to put in right now. 
+
+Original #f4f5f6, Hover #e6e8eb, Active #eef0f1 */
+.playlist ul.videos {
+    border: 1px solid #e3e3e3;
+}
+.playlist .playlist-header {
+    background: #000;
+    border: 1px solid #e3e3e3;
+}
+.playlist ul.videos li > a {
+    background: #000;
+}
+.playlist ul.videos li > a:hover {
+    background: #222;
+}
+.playlist ul.videos li > a.active{
+    background: #333;
+}
+.playlist ul.videos li > a:focus{
+    background: #444;
 }
 }
